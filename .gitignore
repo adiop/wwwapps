@@ -12,7 +12,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -20,6 +19,27 @@
 *.tar.gz
 *.rar
 
+# IntelliJ project files
+.gradle
+.idea
+*.iml
+out
+gen
+build
+
+#eclipse
+.classpath
+.project
+/.gradle/
+/.settings/
+/bin/
+src/main/java/
+src/main/webapp/WEB-INF/classes/
+src/main/webapp/WEB-INF/lib/
+/.idea/
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+/.idea/
+/.gradle/

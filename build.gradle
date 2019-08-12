@@ -1,0 +1,315 @@
+import java.nio.file.*
+import org.apache.commons.io.FileUtils
+
+buildscript{
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven {
+			url "https://plugins.gradle.org/m2/"                    // Needed to pull gretty dependencies
+		}
+		
+	}
+
+	dependencies{
+		classpath "commons-io:commons-io:2.5"
+		classpath "gradle.plugin.org.akhikhl.gretty:gretty:1.4.2"
+	}
+}
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+def tomcatVersion = "7.0.53"
+def tomcatDevWebappsFolder = "c://webservers/WWWApps_T7/webapps/"
+
+war{
+	from('/resources') {
+		include 'application.conf'
+		into('WEB-INF/classes')
+	}
+}
+
+sourceCompatibility = 1.8
+	
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+	options.incremental = true
+}
+
+configurations {
+    jasper
+}
+
+dependencies {
+	
+	jasper "org.apache.tomcat:tomcat-catalina-ant:${tomcatVersion}"
+    jasper "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
+    jasper "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+
+    jasper 'javax.servlet.jsp.jstl:jstl-api:1.2'
+    jasper "org.glassfish.web:jstl-impl:1.2"
+    jasper "taglibs:standard:1.1.2"
+    
+ 	//this was defined in settings.gradle file
+	compile project(":WarnJavaLib")
+
+ 	//stuff that lives in Tomcats core lib folder or in the bin folder
+    providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
+    providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+
+    providedCompile "org.slf4j:slf4j-log4j12:1.7.12"
+    providedCompile "org.slf4j:jcl-over-slf4j:1.7.12"
+
+	providedCompile "javax.mail:mail:1.5.0-b01"
+
+	//needed for URL rewrite
+	compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
+
+	// https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core
+	compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.26-b03'
+
+	// https://mvnrepository.com/artifact/com.maxmind.geoip/geoip-api
+	compile group: 'com.maxmind.geoip', name: 'geoip-api', version: '1.3.1'
+
+	//testing
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+	testCompile group: 'com.google.guava', name: 'guava', version: '21.0'
+
+	testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+
+
+
+}
+
+////////////////begin compile JSP code///////////////////////////
+//var used by translateJSPsToServlets and compileJSPs tasks
+def jasperOutputDir = new File("$buildDir/jsps/translated-jsps/")
+
+task jsps_TranslateToServletCode() {
+
+	group "build"
+	description "puts java source in " + jasperOutputDir
+
+	def jspSourceDir = "./src/main/webapp"
+
+	doFirst{
+
+		jasperOutputDir.mkdirs()
+
+	    //define the ant task
+	    ant.taskdef(
+	    	classname: 'org.apache.jasper.JspC',
+	    	name: 'jasper',
+	    	classpath: configurations.jasper.asPath
+	    )
+
+	    //use the ant task
+	    ant.jasper(
+	    	validateXml: "false",
+	    	uriRoot: jspSourceDir,
+	    	outputDir: jasperOutputDir,
+	    	classpath: configurations.jasper.asPath
+	    )
+
+	 }
+}
+
+//TODO add task to put precomiled pages in the WAR file for faster loads
+task jsps_CompileServlets(type: JavaCompile){
+
+	destinationDir = file("$buildDir/jsps/compiled-jsps")
+
+	group = "build"
+	description = "Compiles translated JSPs, puts in " + destinationDir
+
+	classpath = configurations.providedCompile + project.sourceSets.main.output + sourceSets.main.runtimeClasspath
+
+	/*
+	doFirst{
+		println("List of classpaths for compileJSPs:")
+		classpath.each{
+			println it
+		}
+	}
+	*/
+
+	sourceCompatibility = project.sourceCompatibility
+	targetCompatibility = project.sourceCompatibility
+
+	source = jasperOutputDir
+
+	//show warnings for deprecated
+	//options.compilerArgs << "-Xlint:deprecation"
+
+	//classes have to be built, which builds WarnJava
+	dependsOn classes
+	dependsOn jsps_TranslateToServletCode
+
+
+	finalizedBy{
+		jsps_CleanAfterCompile
+	}
+
+}
+
+task jsps_CleanAfterCompile(){
+
+	group "build"
+	description "clean up translate and compileJSPs build folders"
+	
+	doLast{
+	
+		def thisDir = new File("$buildDir/jsps/")
+		thisDir.deleteDir()
+	
+		thisDir = new File("$buildDir/tmp/jsps_CompileServlets")
+		thisDir.deleteDir()
+	}
+
+}
+/////////////////// end compile JSP code////////////////////
+
+task copyWarToDevServer(type: Copy){
+
+	dependsOn war
+
+	group "publish"
+	description "copies war, assumes web server at " + tomcatDevWebappsFolder
+
+	from "$buildDir/libs/wwwapps.war"
+	into tomcatDevWebappsFolder
+
+}
+
+task explodeWarDirectlyToDevServer(type: Copy) {
+	//in this version, the war file is never created
+	def targetFolder = tomcatDevWebappsFolder + "$project.name/"
+
+	group "build"
+	description "uses war task spec to create exploded war in " + targetFolder
+
+	into targetFolder
+	with war
+}
+
+task explodedWar(type: Copy) {
+
+	def targetFolder = "$buildDir/exploded-war/$project.name/"
+
+	group "build"
+	description "use war task spec to create exploded war in " + targetFolder
+
+	into targetFolder
+	with war
+}
+
+
+task deployExplodedWarToDevServer(type: IncrementalSync){
+	//this builds an exploded then uses incremental sync to update contents
+	//on the target folder
+	dependsOn explodedWar
+
+	def thisWebAppFolder = tomcatDevWebappsFolder + "/" + rootProject.name
+
+	group "publish"
+	description "copies war contents, using war config, assumes web app folder on server at " + thisWebAppFolder
+
+	inputFiles = explodedWar.outputs.files
+	removeRootDir = explodedWar.getDestinationDir().toPath()
+	outputDir = new File(thisWebAppFolder)
+
+}
+
+class IncrementalSync extends DefaultTask{
+
+	@InputFiles
+	def inputFiles
+
+	//this path will be removed from the inputFile paths
+	Path removeRootDir = Paths.get("");
+
+	@OutputDirectory
+	def File outputDir
+
+	@TaskAction
+	void execute(IncrementalTaskInputs inputs) {
+
+		if (!inputs.incremental) {
+			println("inputs not incremental, deleting entire outputDir " + outputDir.path)
+			outputDir.deleteDir()
+			//inputs.outOfDate should have a change which will populate this dir
+		}
+
+		inputs.outOfDate({ change ->
+
+			println("outofdate path " + change.file.toPath() )
+			java.nio.file.Path srcSubPath = removeRootDir.relativize(change.file.toPath())
+			java.nio.file.Path destPath = Paths.get(outputDir.toPath().toString(), srcSubPath.toString())
+			println(change.file.name + " changed, copy from " + change.file.path + " to " + destPath)
+
+			try {
+
+				if(change.file.isFile()) {
+					destPath.toFile().getParentFile().mkdirs()
+					Files.copy(change.file.toPath(), destPath, StandardCopyOption.REPLACE_EXISTING)
+				}else{
+					println("was folder.. copying recursively")
+					FileUtils.copyDirectory(change.file, destPath.toFile())
+				}
+
+			} catch (Exception e) {
+				println("Error: " + e.getMessage())
+				e.printStackTrace()
+			}
+
+		} as Action)
+
+		inputs.removed({ change ->
+			Path destPath = outputDir + change.file.path.relativize(removeInputRootPath) + change.file.name
+			println("file removed, deleting " + destPath)
+			//thisTargetFile.delete()
+		} as Action)
+	}
+
+
+}
+
+//git commands under gradle under development
+task gitPull(type: Exec) {
+	group "publish"
+	description "Pulls git."
+
+	commandLine "git", "pull"
+}
+
+task listWarClassPathsAndWarSources(){
+	group "publish"
+	description "copies war, assumes web server at " + tomcatDevWebappsFolder
+	doFirst {
+		println "********** Classpath For Compiling the War **************"
+		war.classpath.each { File file ->
+			println file.getPath()
+		}
+		println "*********** War Sources: Files To Be Put in the War ************"
+		war.source.each { File file ->
+			println file.getPath()
+		}
+
+	}
+}
+
+gretty {
+	// supported values:
+	// 'jetty7', 'jetty8', 'jetty9', 'tomcat7', 'tomcat8'
+	servletContainer = 'tomcat8'
+	contextPath = '/wwwapps'
+	fastReload = true
+	scanInterval = 4
+	managedClassReload = true
+	inplaceMode = 'hard'    // instead of soft
+	jvmArgs = ['-Denv=prod'] // '-Denv=local' '-Denv=staging' '-Denv=prod'
+}

@@ -1,0 +1,84 @@
+import java.nio.file.*
+import org.apache.commons.io.FileUtils
+
+buildscript{
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"                    // Needed to pull gretty dependencies
+        }
+
+    }
+
+    dependencies{
+        classpath "commons-io:commons-io:2.5"
+        classpath "gradle.plugin.org.akhikhl.gretty:gretty:1.4.2"
+    }
+}
+apply plugin: 'java'
+apply plugin: 'war'
+
+def tomcatVersion = "7.0.53"
+def warName = "ROOT"
+
+war{
+//    from('/resources') {
+//        include 'application.conf'
+//        into('WEB-INF/classes')
+//    }
+    archiveName = warName + ".war"
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.incremental = true
+}
+
+configurations {
+    jasper
+}
+
+dependencies {
+
+    jasper "org.apache.tomcat:tomcat-catalina-ant:${tomcatVersion}"
+    jasper "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
+    jasper "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+
+    jasper 'javax.servlet.jsp.jstl:jstl-api:1.2'
+    jasper "org.glassfish.web:jstl-impl:1.2"
+    jasper "taglibs:standard:1.1.2"
+
+    //this was defined in settings.gradle file
+    compile files('../WARNJAVALIBPRJ-WARNJAVALIBCOMPILE-JOB1/build/libs/WarnJava-1.0-SNAPSHOT.jar')
+
+    //stuff that lives in Tomcats core lib folder or in the bin folder
+    providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
+    providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+
+    providedCompile "org.slf4j:slf4j-log4j12:1.7.12"
+    providedCompile "org.slf4j:jcl-over-slf4j:1.7.12"
+
+    providedCompile "javax.mail:mail:1.5.0-b01"
+
+    //needed for URL rewrite
+    compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
+
+    // https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.26-b03'
+
+    // https://mvnrepository.com/artifact/com.maxmind.geoip/geoip-api
+    compile group: 'com.maxmind.geoip', name: 'geoip-api', version: '1.3.1'
+
+    //testing
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'com.google.guava', name: 'guava', version: '21.0'
+
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+
+}
