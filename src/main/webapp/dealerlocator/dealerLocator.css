@@ -1,0 +1,52 @@
+table.formTable {
+	width:100%;
+	border:0px;
+	background-color: #2c2825;
+}
+
+table.formTable td {
+	color: #d1cfcf;
+	vertical-align: text-top;
+	background-color: #2c2825;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+table.formTable td a {
+	color: #d1cfcf;
+	font-size: 11px;
+	text-decoration: underline;
+}
+
+table.formTable td a:hover {
+	color: #ffffff;
+	font-size: 11px;
+	text-decoration: underline;
+}
+
+#searchResults {
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	line-height: 16px;
+}
+
+#searchResults a {
+	padding: 0px 0px 0px 0px;
+	color: #CE1126;
+	TEXT-DECORATION: none;
+}
+
+#searchResults a:hover {
+	padding: 0px 0px 0px 0px;
+	color: #333232;
+	TEXT-DECORATION: underline;
+}
+
+hr {
+	border: 0;
+	width: 100%;
+	background-color: #716e6a;
+	height: 1px;
+}
+
