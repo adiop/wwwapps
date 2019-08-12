@@ -1,0 +1,25 @@
+.WD {
+	BORDER-RIGHT: #696A6A 1px solid;
+	BORDER-TOP: #696A6A 1px solid;
+	BORDER-LEFT: #696A6A 1px solid;
+	BORDER-BOTTOM: #696A6A 1px solid;
+	BORDER-COLLAPSE: collapse
+}
+
+.webdealers DIV {        
+    float: left;    
+    width: 24%; /*changing this controls the number of columns*/
+    height: 100px;    
+    text-align: center;    
+    margin: 0 5px 5px 0;
+    /* border: 1px solid #ccc; /*shown for layout purposes*/
+}
+
+.webdealers DIV IMG {    
+    position: relative;
+    top: 50%;
+    margin-top: -39px;
+    width: 155px;
+    height: 78px;
+    border: 1px solid #a9a8a8;    
+}

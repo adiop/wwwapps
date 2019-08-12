@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<script> 
+		//these 2 script blocks are for AppD monitoring
+    	window['adrum-start-time']= new Date().getTime(); 
+	</script> 
+	<script src="/wwwapps/shared/adrum.js"></script>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<script src="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.min.css">
+
+	<title>Web Dealer Search</title>
+	<link rel="stylesheet" href="/wwwapps/shared/wwwapps.css">
+	<link rel="stylesheet" href="webDealers.css">
+	<script src="webDealers.js"></script>	
+
+</head>
+<body>
+<div class="mainDiv">
+	<table class="logoAndTitleTable">
+		<tr>
+			<td>
+				<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span class="titleSpan">Web Dealers</span>
+			</td>
+		</tr>
+	</table>
+
+	<div id="waitMessageDiv">
+		<h3>
+		Loading, please wait....
+		</h3>
+	</div>
+	<span id="messageSpan"></span>	
+	<div id="formDiv" style="display:none;">
+		<form>
+			<table class="warnGreyBG" style="align:left;width:100%;" >
+				<tr>
+					<td><br>
+						<span class=title2>WARN Authorized Online Dealers</span>&nbsp;&nbsp;
+						<select name="productSelector" id="productSelector"	onchange="this.form.submit();">
+							<option value="hubs">Hubs
+							<option value="lights">Lights
+							<option value="plows">Plows
+							<option value="winches_atv">ATV Winches
+							<option value="winches_truck">Truck Winches
+						</select>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<table class="webdealers warnGreyBG" >
+			<tr>
+				<td id="dealersCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="nonUSorCanadaDiv" style="display:none;">
+		<h3>
+		Currently there are no authorized Online Dealers that sell into your region.<br>
+		<br>
+		Please contact your local WARN Dealer by clicking <a href="/wwwapps/dealerlocator/dealerLocator.htm">Here</a>
+		</h3>
+	</div>
+
+</div>
+</body>
+</html>

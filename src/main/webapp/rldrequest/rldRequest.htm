@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<script> 
+		//these 2 script blocks are for AppD monitoring
+    	window['adrum-start-time']= new Date().getTime(); 
+	</script> 
+	<script src="/wwwapps/shared/adrum.js"></script>
+	<title>Red Letter Dealer Request</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="/wwwapps/shared/wwwapps.css">
+	<script src="rldRequest.js"></script>
+</head>
+<body>
+	<div class="mainDiv">
+		<table width="100%" border="0" height="50px">
+			<tr>
+				<td align="left">
+				<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span style="font-size:26px;">Red Letter Dealer Application</span>
+				</td>
+			</tr>
+		</table>
+		<form method="post" name="rld_request"	id="rld_request" onsubmit="return save(event);">
+			<table class="formTable" >
+				<tr>
+					<td>Store Name:</td>
+					<td>
+						<input name="store_name" id="store_name" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Store Address:</td>
+					<td>
+						<input name="store_address" id="store_address" type="text"	value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td>
+						<input name="city" id="city" type="text" value=""	size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td>
+						<input name="state" id="state" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Zip Code:</td>
+					<td>
+						<input name="zip" id="zip" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Website:</td>
+					<td>
+						<input name="website" id="website" type="text" value=""	size="30">
+					</td>
+				</tr>
+				<tr><td colspan="2"><hr></td></tr>
+				<tr>
+					<td>Owner/Manager:</td>
+					<td>
+						<input name="owner" id="owner" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Phone:</td>
+					<td>
+						<input name="phone" id="phone" type="text" value=""	size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Fax:</td>
+					<td>
+						<input name="fax" id="fax" type="text" value=""	size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>E-mail Address:</td>
+					<td>
+						<input name="email" id="email" type="text" value=""	size="30"><br>
+						<i>Only one email address please</i>
+					</td>
+				</tr>
+				<tr><td colspan="2"><hr></td></tr>
+				<tr>
+					<td>WARN Products carried:</td>
+					<td>
+						<table width=100%>
+							<tr>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" VALUE="Truck & SUV Winches">Truck & SUV Winches
+								</td>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" VALUE="ATV Winches">ATV Winches
+								</td>
+							</tr>
+							<tr>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" VALUE="Works Winches">Works Winches
+								</td>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" VALUE="Winch Accessories">Winch Accessories
+								</td>
+							</tr>
+							<tr>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" VALUE="Lights">Lights
+								</td>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products" vALUE="Hubs">Hubs
+								</td>
+							</tr>
+							<tr>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products"	VALUE="Bumpers/Mounting Kits">Bumbers/Mounting Kits
+								</td>
+								<td valign=top>
+									<INPUT TYPE=checkbox name="products"	VALUE="Flares">Flares
+							</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>Other lines of winches carried:</td>
+					<td>
+						<input name="other_lines" id="other_lines" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr><td colspan="2"><hr></td></tr>
+				<tr>
+					<td>List of Events your sponsor or attend:</td>
+					<td>
+						<input name="events" id="events" type="text" value="" size="30">
+					</td>
+				</tr>
+				<tr>
+					<td>Do you have a show room:</td>
+					<td>
+						<input type="radio" name="show_room" value="Yes">Yes &nbsp;&nbsp;
+						<input type="radio" name="show_room" value="No"	checked>No
+					</td>
+				</tr>
+				<tr>
+					<td>Do you install:</td>
+					<td>
+						<input type="radio" name="install" value="Yes">Yes &nbsp;&nbsp;
+						<input type="radio" name="install" value="No" checked>No
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td align="left">
+						<input type=hidden name="subject" id="subject" value="">
+						<input type=hidden name="jtest" id="jtest" value="">
+						<input type="submit" value="submit">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
+
+
