@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context  privileged="true" reloadable="true">
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    
+    <!--  ep: these link to jdbc pools defined in conf/server.xml global resources section -->
+   	<ResourceLink name="jdbc/INTRANET_Local"
+    	global="jdbc/INTRANET"
+        auth="Container"
+        type="javax.sql.DataSource" 
+    />
+    
+    <ResourceLink name="jdbc/INTERNET_Local"
+    	global="jdbc/INTERNET"
+        auth="Container"
+        type="javax.sql.DataSource" 
+    />
+    
+    <ResourceLink name="jdbc/PDM_Local"
+    	global="jdbc/PDM"
+        auth="Container"
+        type="javax.sql.DataSource" 
+    />
+    
+    <!-- RLD dealer locator uses -->
+    <ResourceLink name="jdbc/CRM_Local"
+    	global="jdbc/CRM"
+        auth="Container"
+        type="javax.sql.DataSource" 
+    />
+    
+    <ResourceLink name="jdbc/PARTNERS_Local"
+		global="jdbc/PARTNERS"
+	    auth="Container"
+	    type="javax.sql.DataSource"
+	/>
+	
+</Context>

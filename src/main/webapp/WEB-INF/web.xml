@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	metadata-complete="false" version="3.0">
+	<display-name>WWWApps</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<!-- ep: to hide that we are running tomcat, we feed all errors to generic error htm page -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error403.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error500.htm</location>
+	</error-page>
+	<!-- ep: in prod instance, enable this -->
+	<error-page> 
+		<exception-type>java.lang.Exception</exception-type> 
+		<location>/errorEX.htm</location>
+	</error-page>
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<init-param>
+			<param-name>confReloadCheckInterval</param-name>
+			<param-value>5</param-value>
+		</init-param>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>ERROR</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<!-- ep: hides any .git folder or .idea folder (intellij) that is on the server -->
+	<security-constraint>
+		<display-name>Security Constraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>Protected Area</web-resource-name>
+			<url-pattern>/.git/*</url-pattern>
+			<url-pattern>/.idea/*</url-pattern>
+	
+			<http-method>DELETE</http-method>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+			<http-method>PUT</http-method>
+		</web-resource-collection>
+	  	<auth-constraint>
+	     	<role-name>FakeRole</role-name>
+	  	</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>FakeRole</role-name>
+	</security-role>
+
+	<servlet>
+		<servlet-name>jersey</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+		     <param-name>jersey.config.server.application.name</param-name>
+		     <param-value>Web Apps API</param-value>
+		</init-param>
+		<init-param>
+		     <param-name>jersey.config.server.provider.packages</param-name>
+		     <param-value>com.warn.web.internet.rld,com.warn.web.internet.shared,com.warn.web.internet.dealerfinder,com.warn.web.internet.retailer,com.warn.web.internet.contactorrecall,com.warn.web.internet.webdealers</param-value>
+		</init-param>
+		<init-param>
+    		<param-name>jersey.config.server.provider.classnames</param-name>
+    		<param-value>org.glassfish.jersey.filter.LoggingFilter;org.glassfish.jersey.media.multipart.MultiPartFeature;com.warn.web.api.filters.ResponseCORSFilterWWW;com.warn.web.api.filters.RequestOptionsFilter</param-value>
+		</init-param>
+		<init-param>
+            <param-name>jersey.config.server.response.setStatusOverSendError</param-name>
+            <param-value>true</param-value>
+        </init-param>		
+		<init-param>
+            <param-name>jersey.config.server.tracing.type</param-name>
+            <param-value>ALL</param-value>
+        </init-param>
+		<init-param>
+            <param-name>jersey.config.server.tracing.threshold</param-name>
+            <param-value>VERBOSE</param-value>
+        </init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>SponsorshipRequestService</servlet-name>
+		<servlet-class>com.warn.web.internet.SponsorshipRequestService</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ContactService</servlet-name>
+		<servlet-class>com.warn.web.internet.ContactService</servlet-class>
+	</servlet>	
+	
+	<servlet>
+		<servlet-name>PartsFinder</servlet-name>
+		<servlet-class>com.warn.web.internet.PartsFinder</servlet-class>
+	</servlet>	
+
+	<servlet>
+		<servlet-name>PatentSearch</servlet-name>
+		<servlet-class>com.warn.web.internet.PatentSearch</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RetailerAppPDF</servlet-name>
+		<servlet-class>com.warn.web.internet.retailer.RetailerAppPDF</servlet-class>
+	</servlet>
+	
+	<!-- WBlog is legacy and deprecated, plz consider deleting this and its mapping block once WWW gets redone in sitecore -->
+	<servlet>
+		<servlet-name>WBlog</servlet-name>
+		<servlet-class>internet.www.servlets.WBlog</servlet-class>
+	</servlet>
+
+	<!-- map the servlets. -->
+	<!-- NOTE: to reach these versions, you have to prepend the url pattern with "/wwwapps" --> 
+	<servlet-mapping>
+		<servlet-name>jersey</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SponsorshipRequestService</servlet-name>
+		<url-pattern>/sponsorrequest/SponsorshipRequestService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ContactService</servlet-name>
+		<url-pattern>/contactus/ContactService</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet-mapping>
+		<servlet-name>PartsFinder</servlet-name>
+		<url-pattern>/store/PartsFinder</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PatentSearch</servlet-name>
+		<url-pattern>/PatentSearch</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RetailerAppPDF</servlet-name>
+		<url-pattern>/retailer/ApplicationPDF</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>WBlog</servlet-name>
+		<url-pattern>/WBlog</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>
+
+
