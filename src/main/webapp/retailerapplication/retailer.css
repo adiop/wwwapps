@@ -1,0 +1,147 @@
+table.menuretailer 
+{
+	width:239px;
+	height:294px;
+        background: url(../images/menu-bg-retailer.gif); 
+	background-repeat:no-repeat;
+	padding:0px 0px 0px 0px;
+ 	FONT-SIZE: 11px;
+    	FONT-FAMILY: Verdana;
+   	margin:0px 0px 0px 0px;
+}
+.retailer
+{
+	width:950px;
+	text-align: left;
+	font-family: Arial, Verdana;
+  	font-weight: normal;
+  	font-size: 13px;
+   	line-height: 14pt;
+	color: #4d4945;
+	margin: 10px 10px 10px 10px;
+}
+.retailertitle
+{
+	width:950px;
+	text-align: left;
+	font-family: Arial, Verdana;
+  	font-weight: bold;
+  	font-size: 13px;
+   	line-height: 14pt;
+	color: #181614;
+	margin: 10px 10px 10px 10px;
+}
+.retailer a
+{
+	text-decoration: none; 
+	 
+}
+.retailer a:hover
+{
+	text-decoration: underline; 
+}
+table.menu2retailer 
+{
+	width:974px;
+	height:22px;
+        background-color: #efefef; 
+	padding:0px 0px 4px 0px;
+ 	FONT-SIZE: 10px;
+    	FONT-FAMILY: arial;
+   	margin:0px 0px 0px 0px;
+	text-align:left;
+}
+table.menu2retailer a 
+{
+	color: #4d4945;
+        text-decoration: none; 
+ 	FONT-SIZE: 11px;
+    	FONT-FAMILY: arial;
+   	text-align:left;
+}
+table.menu2retailer a:hover 
+{
+	
+        text-decoration: underline; 
+ 	
+}
+.formfeld
+{
+	position: absolute;
+    	top: -100px;
+    	left: -500px;
+    	display: none;
+}
+.formlabel
+{
+ 	width: 35%;
+    	text-align: right;  
+	font-family: Arial, Verdana;
+  	font-weight: normal;
+  	font-size: 13px;
+	color: #4d4945;  
+}
+.salestable
+{
+   	 width: 300px;    
+     float: left;
+}
+.salestable TR
+{
+   	 width: 100%;
+}
+.salestable TD
+{    
+   	 text-align: right;
+   	 line-height: 2em;    
+}
+.formsection
+{   
+  	 margin-bottom: 10px;
+   	 padding: 5px; 
+       
+}
+.formsection TR
+{
+   	 height: 25px;
+
+}
+.formsection TD
+{
+ 
+font-family: Arial, Verdana;
+	font-weight: normal;
+  	font-size: 13px;
+	padding: 0px 0px 0px 9px;
+}
+
+table.benefits td 
+{
+	padding: 0px;
+	font-family: Arial, Verdana;
+  	font-weight: normal;
+  	font-size: 13px;
+   	line-height: 14pt;
+	vertical-align:text-top;
+	
+}
+ul
+{
+	padding: 4px;
+   	line-height: 14pt;
+	
+}
+li
+{
+	padding: 4px;
+   	line-height: 14pt;
+	
+}
+tr.section-products > td > input {  
+  padding-left: 11px;
+}
+tr.section-header td:first-child {
+  text-align: left;
+  text-indent: 200px;
+  text-decoration: underline;
+}

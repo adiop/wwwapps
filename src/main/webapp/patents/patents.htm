@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script> 
+		//these 2 script blocks are for AppD monitoring
+    	window['adrum-start-time']= new Date().getTime(); 
+	</script> 
+	<script src="/wwwapps/shared/adrum.js"></script>
+	<title>Patent Marking</title>
+	
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+
+	<link rel="stylesheet" href="patents.css">
+	<script src="patents.js"></script>
+
+</head>
+<body >
+<div style="width:760px;" >
+	<table width="100%" border="0" height="50px">
+		<tr>
+			<td align="left">
+			<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+			<span style="font-size:26px;">Warn Industries Virtual Patent Marking</span>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td >
+				<div class="copy">
+					The following WARN<img src="r-sym.gif"> products are protected by patents in the United States and elsewhere. This website is provided to satisfy
+					the virtual patent marking provisions of the America Invents Act, 35 U.S.C <img src="section-sym.gif">287(a). The following list of WARN products
+					may  not be all inclusive, and other WARN<img src="r-sym.gif"> products not listed here may be protected by one or more patents. Information
+					included in this listing does not prevent Warn Industries from pursuing any and all legal rights we may have for the
+					purpose of protecting our intellectual property rights.
+					
+					<br><br><br>
+					Search by Patent Numer or Item Number:<br>
+					<table class="search">
+						<tr>
+							<td>Patent Number:</td><td><input type="text" name="patent_number" id="patent_number" /></td>
+						</tr>
+						<tr>
+							<td>Item Number:</td><td><input type="text" name="item_number" id="item_number" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="button" value="Search" onclick="searchClicked();" /></td>
+						</tr>
+					</table>
+					
+					<br />
+					<hr>
+					<!-- searchResults div populated by the js ajax from the PatentSearch servlet mapped to internet.www.servlets.PatentSearch -->
+					<div id="searchResults"></div>
+				</div>
+				<br> 
+			</td>
+		</tr>
+	</table>
+</div><!-- end max outer div -->
+</body>
+</html>

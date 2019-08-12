@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script>
+		//these 2 script blocks are for AppD monitoring
+		window['adrum-start-time']= new Date().getTime();
+	</script>
+	<script src="/wwwapps/shared/adrum.js"></script>
+	<title>Retailer Application</title>
+
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<script	src="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.js"></script>
+	<link rel="stylesheet"	href="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.min.css">
+	<script src="/wwwapps/shared/js.cookie.js"></script>
+
+	<link rel="stylesheet" href="retailer.css">
+	<script src="applicationFormValidation.js"></script>
+	<script src="wfuncs.js"></script><!-- WARN jquery extension required for validation. TODO: replace with jquery validation plugin -->
+	<script src="applicationFormAjax.js"></script>
+
+</head>
+<body>
+<div style="width:760px;">
+	<table width="100%" border="0" height="50px">
+		<tr>
+			<td align="left">
+				<a href="/index.shtml"><img src="WARN-Authorized-Retailer.gif" border="0"></a>
+				<span style="font-size:26px;"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="authorized_retailer.shtml">Home</a> >>
+				<a href="authorized_retailer.shtml">Become a WARN	Authorized Retailer</a> >>
+				<a href="/wwwapps/retailerapplication/applicationForm.htm">Application Form</a>
+			</td>
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td colspan="2" align="left">
+				<span class="retailertitle">WARN Authorized Retailer Application</span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left">
+				<span class="retailertitle"><i>*
+					As a Warn Authorized Retail Network member, you will
+					continue to purchase through your current Distributor. As
+					an Authorized Retailer, you will receive information
+					directly from Warn about promotions, new products,
+					merchandising opportunities, etc.
+				</i></span>
+			</td>
+		</tr>
+	</table>
+
+	<span id="messageSpan"></span>
+	<form name="rapp" id="rapp" onsubmit="return save(event);">
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2" style="text-align: left; font-weight: bold;">Contact Information:</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Company Name:</td>
+					<td>
+						<input name="company_name" type="text" value=""	size="60" class="required sql" id="company_name">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Main Phone Number:</td>
+					<td><input name="mphone1" type="text" value="" size="2"	class="digits ph1 len3" id="mphone1">
+						<input name="mphone2" type="text" value="" size="2"	class="digits ph1 len3" id="mphone2">
+						<input name="mphone3" type="text" value="" size="3"	class="digits ph1 len4 xrequired" id="mphone3">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Contact Name:</td>
+					<td>
+						<input name="contact_name" type="text" value=""	size="60" class="required sql" id="contact_name">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Contact Phone Number:</td>
+					<td>
+						<input name="cphone1" type="text" value="" size="2"	class="digits ph2 len3" id="cphone1">
+						<input name="cphone2" type="text" value="" size="2"	class="digits ph2 len3" id="cphone2">
+						<input name="cphone3" type="text" value="" size="3"	class="digits ph2 len4" id="cphone3">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Contact Fax Number:</td>
+					<td>
+						<input name="fax1" type="text" value="" size="2" class="digits ph3 len3" id="fax1">
+						<input name="fax2" type="text" value="" size="2" class="digits ph3 len3" id="fax2">
+						<input name="fax3" type="text" value="" size="3" class="digits ph3 len4" id="fax3">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Contact Email Address:</td>
+					<td>
+						<input name="contact_email_address" type="text"	value="" size="60" class="required email" id="contact_email_address">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Tax ID/FEIN:</td>
+					<td>
+						<input name="tax_id" type="text" value="" size="60"	class="required sql" id="tax_id">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Website Address:</td>
+					<td>
+						<input name="website_address" type="text" value="" size="60" class="required sql" id="website_address">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Additional Domains:</td>
+					<td>
+						<input name="additional_domains" type="text" value="" size="60" class="sql" id="additional_domains">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Best Contact Method:&nbsp;</td>
+					<td><select name="contact_method" class=" "	id="contact_method">
+						<option value="" selected>Choose
+						<option value="Phone">Phone
+						<option value="e-mail">e-mail
+						<option value="Mailings">Mailings
+					</select></td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2" style="text-align: left; font-weight: bold;">Physical Address (UPS/Fed Ex):</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address Line One:</td>
+					<td>
+						<input name="physical_address_line_one" type="text"	value="" size="60" class="required sq" id="physical_address_line_one">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address Line Two:</td>
+					<td>
+						<input name="physical_address_line_two" type="text" value="" size="60" class="sql" id="physical_address_line_two">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address City:</td>
+					<td>
+						<input name="physical_address_city" type="text"	value="" size="60" class="required sql"	id="physical_address_city">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address State/Province:</td>
+					<td>
+						<select name="physical_address_state" class="required" id="physical_address_state">
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address Zip:</td>
+					<td>
+						<input name="physical_address_zip" type="text" value="" size="60" class="required sql"	id="physical_address_zip">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Physical Address Country:</td>
+					<td>
+						<select name="physical_address_country" id="physical_address_country"	class=" " id="physical_address_country">
+							<option value="" selected>Choose</option>
+							<option value="US">USA</option>
+							<option value="CA">Canada</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2" style="text-align: left; font-weight: bold;">Billing Address (USPS/Postal):</td>
+				</tr>
+				<tr>
+					<td class="formlabel"><i>(same as physical)</i>:</td>
+					<td valign=top>
+						<INPUT TYPE=checkbox name="same"	id="sameadd" VALUE="">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address Line One:</td>
+					<td>
+						<input name="mailing_address_line_one" type="text"	value="" size="60" class="required sql"	id="mailing_address_line_one">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address Line Two:</td>
+					<td>
+						<input name="mailing_address_line_two" type="text" value="" size="60" class="sql" id="mailing_address_line_two">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address City:</td>
+					<td>
+						<input name="mailing_address_city" type="text" value="" size="60" class="required sql" id="mailing_address_city">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address State/Province:</td>
+					<td>
+						<select name="mailing_address_state" class="required" id="mailing_address_state">
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address Zip:</td>
+					<td>
+						<input name="mailing_address_zip" type="text" value="" size="60" class="required sql" id="mailing_address_zip">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Billing Address Country:</td>
+					<td>
+						<select name="mailing_address_country" class=" " id="mailing_address_country">
+							<option value="" selected>Choose</option>
+							<option value="US">USA</option>
+							<option value="CA">Canada</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2" style="text-align: left; font-weight: bold;">
+						About Your Business:</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Business Type:</td>
+					<td>
+						<select name="business_type" class=" "	id="business_type">
+							<option value="" selected>Choose</option>
+							<option value="5">Ecommerce/Web Store</option>
+							<option value="2">Retail</option>
+							<option value="4">Retail/Service Center</option>
+							<option value="3">Retail/Wholesale</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Do you have multiple	locations:</td>
+					<td>
+						<input type="radio"	name="has_multiple_locations" value="true" class=" ">Yes &nbsp;
+						<input type="radio"	name="has_multiple_locations" value="false" checked class=" ">No
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="formlabel" valign="top">Where do your sales occur:</td>
+					<td>
+						<table width="300px" class="salestable">
+							<tr>
+								<td>Store</td>
+								<td><input name="store_sales_percentage" type="text"
+										   value="" size="10" class="sales sql digits" id="store">
+								</td>
+								<td width="5px">%</td>
+								<td class="saleslabel">Catalog</td>
+								<td><input name="catalog_sales_percentage"
+										   type="text" value="" size="10" class="sales sql digits"
+										   id="catalog"></td>
+								<td>%</td>
+							</tr>
+							<tr>
+								<td class="saleslabel">Online</td>
+								<td>
+									<input name="online_sales_percentage" type="text" value="" size="10" class="sales sql digits" id="online">
+								</td>
+								<td>%</td>
+								<td class="saleslabel">Phone</td>
+								<td>
+									<input name="phone_sales_percentage" type="text" value="" size="10" class="sales sql digits" id="phone">
+								</td>
+								<td>%</td>
+							</tr>
+							<tr>
+								<td class="saleslabel">Install/Shop</td>
+								<td>
+									<input name="install_sales_percentage" type="text" value="" size="10" class="sales sql digits" id="installshop"></td>
+								<td>%</td>
+								<td class="saleslabel">Other</td>
+								<td>
+									<input name="other_sales_percentage" type="text" value="" size="10" class="sales sql digits" id="other">
+								</td>
+								<td>%</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>Total</td>
+								<td><input name="total" type="text" value="" size="10" id="total" disabled></td>
+								<td>%</td>
+							</tr>
+						</table>
+						&nbsp;<span	style="float: left; padding-top: 90px; color: red;">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Do you have a retail store that customers can visit:</td>
+					<td>
+						<input type="radio" name="has_retail_store" value="true" class=" ">Yes &nbsp;
+						<input type="radio" name="has_retail_store"	value="false" checked class=" ">No
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Do you install product:&nbsp;</td>
+					<td>
+						<input type="radio" name="product_installer" value="true" class=" ">Yes
+						<input type="radio" name="product_installer" value="false" checked class=" ">No
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Number of Install Bays:&nbsp;</td>
+					<td>
+						<input name="install_bay_count" type="text" value="" size="4" class="digits" id="install_bay_count">
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2" style="text-align: left; font-weight: bold;">WARN Products:</td>
+				</tr>
+				<tr class="section-products section-products-first">
+					<td class="formlabel">Do you currently carry WARN products:</td>
+					<td>
+						<input type="radio"	name="currently_carries_warn_products" value="true" class=" ">Yes &nbsp;
+						<input type="radio"	name="currently_carries_warn_products" value="false" checked class=" ">No
+					</td>
+				</tr>
+				<tr class="section-products">
+					<td class="formlabel">If so, how long have you carried	the WARN line:</td>
+					<td>
+						<select name="years_carrying_warn_products"	 class=" " id="years_carrying_warn_products">
+							<option value="" selected>Choose</option>
+							<option value="1 Year">1 Year</option>
+							<option value="2-5 Years">2-5 Years</option>
+							<option value="6-10 Years">6-10 Years</option>
+							<option value="Over 10 Years">Over 10 Years</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr class=section-header class="section-products product-qualifier">
+					<td class="formlabel">Accessories</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Truck:</td>
+					<td>
+						<input type="radio" name="rb-pid6-sid1"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid6-sid1"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid6-sid1"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">ATV:</td>
+					<td>
+						<input type="radio" name="rb-pid6-sid2"	value="0" checked>No
+						<input type="radio" name="rb-pid6-sid2"	value="1">Sell
+						<input type="radio" name="rb-pid6-sid2"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class=section-header class="section-products product-qualifier">
+					<td class="formlabel">Hubs</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Truck:</td>
+					<td>
+						<input type="radio" name="rb-pid5-sid1" value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid5-sid1"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid5-sid1"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class=section-header class="section-products product-qualifier">
+					<td class="formlabel">Lights</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Truck:</td>
+					<td>
+						<input type="radio" name="rb-pid4-sid1"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid4-sid1"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid4-sid1"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">ATV:</td>
+					<td>
+						<input type="radio" name="rb-pid4-sid2"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid4-sid2"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid4-sid2"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class=section-header class="section-products product-qualifier">
+					<td class="formlabel">Plows</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">ATV:</td>
+					<td>
+						<input type="radio" name="rb-pid3-sid2"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid3-sid2" value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid3-sid2"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class=section-header class="section-products product-qualifier">
+					<td class="formlabel">Winches</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Truck:</td>
+					<td>
+						<input type="radio" name="rb-pid1-sid1"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid1-sid1"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid1-sid1"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">ATV:</td>
+					<td>
+						<input type="radio" name="rb-pid1-sid2"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid1-sid2"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid1-sid2" value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Utility:</td>
+					<td>
+						<input type="radio" name="rb-pid1-sid3"	value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid1-sid3"	value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid1-sid3"	value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr class="section-products product-qualifier">
+					<td class="formlabel" class="formlabel">Industrial:</td>
+					<td>
+						<input type="radio" name="rb-pid1-sid4" value="0" checked>No &nbsp;
+						<input type="radio" name="rb-pid1-sid4" value="1">Sell &nbsp;
+						<input type="radio" name="rb-pid1-sid4" value="2">Sell & Stock
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Do you use merchandising diplays in your store with WARN product?</td>
+					<td>
+						<input type="radio"	name="warn_products_displayer" value="true" class=" ">Yes
+						<input type="radio" name="warn_products_displayer" value="false" checked class=" ">No
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel" style="line-height: 2.1em; vertical-align: top;">
+						What displays work best:</td>
+					<td>
+						<table width=100%>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="48">Banners
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="54">Ceiling Danglers
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="51">Counter Mats
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="53">Floor	Decals
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="47">Posters
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="50">Product Displays
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="52">Shelf	Tags
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="merchandising_displays" VALUE="49">Videos
+								</td>
+								<td valign=top width="16.0%">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="formlabel" style="line-height: 2.1em; vertical-align: top;">
+						Winch lines you carry:
+					</td>
+					<td>
+						<table width=100%>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="11">Bulldog
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="18">ComeUp
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="12">ENGO
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="19">KFI
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="13">MileMarker
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="24">Other/Private Label
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="20">Polaris
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="14">ProMark
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="21">Ramsey
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="55">Rough Country
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="15">Rugged Ridge
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="22">Smittybilt
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="16">Superwinch
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="23">T-Max
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="17">Viper
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="winch_lines" VALUE="10">WARN/OE Co-brand
+								</td>
+								<td valign=top width="16.0%">&nbsp;</td>
+								<td valign=top width="16.0%">&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel" style="line-height: 2.1em; vertical-align: top;">
+						What other hub lines do you carry:</td>
+					<td>
+						<table width=100%>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="58">Dynatrac
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="26">MileMarker
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="27">Rugged Ridge/AVM
+								</td>
+							</tr>
+							<tr>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="57">Spicer
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="41">Superwinch
+								</td>
+								<td valign=top width="16.0%">
+									<INPUT TYPE=checkbox name="hub_lines" VALUE="56">Yukon
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Who is your primary warehouse	distributor:</td>
+					<td>
+						<input name="primary_warehouse_distributor"	type="text" value="" size="60" class="required sql"	id="primary_warehouse_distributor">
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Who is your secondary warehouse distributor:</td>
+					<td>
+						<input name="secondary_warehouse_distributor" type="text" value="" size="60" class="sql" id="secondary_warehouse_distributor">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td valign="top" align="right">How did you find this program:</td>
+					<td>
+						<div class="xrequired" style="float: left;">
+							<input type="radio" name="how_found" value="My distributor/supplier">My	distributor/supplier<br>
+							<input type="radio" name="how_found" value="WARN website">WARN website<br>
+							<input type="radio" name="how_found" value="Mailing from WARN">Mailing from WARN<br>
+							<input type="radio" name="how_found" value="Word of mouth">Word of mouth<br>
+							<input type="radio" name="how_found" value="Other">Other
+						</div>
+					</td>
+				</tr>
+				<tr class=hidden>
+					<td class="formlabel">(Specify):</td>
+					<td>
+						<input name="how_found_detail" type="text" value=""	size="60" id="how_found_detail">
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<hr style="width: 98%; text-align: center;" />
+
+		<div class="formsection">
+			<table width="98%">
+				<tr>
+					<td>&nbsp;</td>
+					<td align="center">
+
+						<input type="hidden" name="wf" id="wf" />
+						<!-- TODO remove or replace? this was apparently here to detect spam bots, -->
+						<!-- somehow the bot was supposed to fill in this field even though the css (I guess) made it invisible -->
+						<input type="text" name="last_name" class="formfeld" id="last_name" />
+
+						<!-- legacy JS puts all the check box values in here, not sure this is the way to go -->
+						<input type="hidden" name="warn_products_checked" id="warn_products_checked" />
+
+						<input type="hidden" name="main_phone_number" id="main_phone_number" class="required" />
+						<input type="hidden" name="contact_phone_number" id="contact_phone_number" />
+						<input type="hidden" name="contact_fax_number" id="contact_fax_number" />
+
+						<input type="submit" value="Create Application" id="create_submit" /></td>
+				</tr>
+			</table>
+		</div>
+
+	</form>
+
+	<table width="100%">
+		<tr><td valign="bottom" height="27px" background="/wwwapps/shared/bottom-border.jpg"></td></tr>
+	</table>
+
+</div>
+</body>
+</html>
+
+
+

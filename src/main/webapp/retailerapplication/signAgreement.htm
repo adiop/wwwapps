@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+		<title>Retailer Application Sign</title>
+	
+		<link rel="stylesheet" href="/wwwapps/shared/warn.css" type="text/css">
+		<link rel="stylesheet" href="retailer.css" type="text/css">
+		<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+		<script src="/wwwapps/shared/js.cookie.js"></script>
+		
+		<script src="signAgreement.js"></script>
+	
+</head>
+<body>
+<div style="width:760px;">
+	<table width="100%" border="0" height="50px">
+		<tr>
+			<td align="left">
+			<a href="/index.shtml"><img src="WARN-Authorized-Retailer.gif" border="0"></a>
+			</td>
+		</tr>
+		<tr>
+			<td align="left"><b>Agreement:</b></td>
+		</tr>
+	</table>
+	<form method="post" id="rapp" name="rapp"	onsubmit="return save(event);">
+		<input type="hidden" id="uuID" name="uuID" value="">
+		<input type="hidden" id="electronic" name="electronic" value="true">
+		<div class="formsection"><!-- TODO get rid of this div -->
+			<table width="660px">
+				<tr>
+					<td colspan="2" align="left">
+					Two methods are offered to	agree to the Terms and Conditions of the WARN Authorized Retail Network.
+					</td>
+				</tr>
+				<tr><td colspan="2"></td></tr>
+				<tr>
+					<td colspan="2" align="left" ><u>Option 1:</u></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">Download the agreement,
+						complete any remaining fields and return the signed
+						agreement by fax and/or mail.</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Download Agreement"	onclick="downloadAgreement();" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left"><u>Option 2:</u></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">
+						Download and read the agreement then sign digitally by entering your name below.
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Download Agreement"	onclick="downloadAgreement();" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">
+					I have read the Terms and Conditions of the WARN Authorized Retail Network agreement.
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td align="left">
+						<INPUT TYPE=checkbox name="read_agreement" id="read_agreement" VALUE="Yes">Yes
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">By selecting I accept, I
+						agree to the Terms and Conditions of the WARN Authorized
+						Retail Network agreement.</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td align="left" valign=top>
+						<INPUT TYPE=checkbox name="accept" id="accept" VALUE="I Accept">I Accept
+					</td>
+				</tr>
+				<tr>
+					<td class="formlabel" width="300">Signature (type your full	name):</td>
+					<td>
+						<input name="signed_by" type="text" value="" size="60" class="required sql" id="signed_by">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="formlabel">Title:&nbsp;</td>
+					<td>
+						<input name="title" type="text" value="" size="60"	class="required sql" id="title">
+						</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="signButton" value="Agree and Sign" onclick="aggreeAndSign();" disabled /></td>
+				</tr>
+			</table>
+		</div><!--  end formsection div -->
+	</form>
+</div>
+</body>
+</html>
+
+
