@@ -1,0 +1,35 @@
+.mainDiv{
+	width:881px;
+}
+
+.logoAndTitleTable{
+	width:100%;
+	table-border:0;
+	height:50px;
+}
+
+.logoAndTitleTable .titleSpan{
+	 font-size: 26px;
+}
+
+.warnGreyBG{
+	background-color: #ebecee;
+}
+
+.stripedTableEven tr:nth-child(even){
+	background: #ebecee;
+}
+
+.stripedTableOdd tr:nth-child(odd){
+	background: #ebecee;
+}
+
+table.formTable{
+	width:100%;
+}
+
+table.formTable > tbody > tr > td:first-child{
+	vertical-align: top;
+	text-align: right;
+	font-weight: bold;	
+}

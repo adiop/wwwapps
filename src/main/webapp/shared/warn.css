@@ -1,0 +1,724 @@
+/* ep: this is deprecated, should move all apps to the wwwapps.css. 
+This has a lot of mung and fung and kruft.
+Moving to wwwapps.css decouples from any vendor working on www
+*/
+BODY {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	/*background:#000000 url(/images/backgroundImage_071211.jpg) no-repeat fixed top center;*/
+	background: #fff;
+	text-align: center;
+}
+
+TD {
+	line-height: 14px;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana;
+	COLOR: #333232;
+}
+
+A {
+	COLOR: #CE1126;
+}
+
+.odiv {
+	width: 990px;
+	margin: 0 auto;
+	/*background-color: #000000;*/
+	height: 100%;
+}
+
+table.otable {
+	width: 990px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	vertical-align: top;
+	height: 100%;
+	border: 0px solid blue;
+}
+
+td.ocontent {
+	width: 100%;
+	border: 0px solid red;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: 0px 0px 0px 0px;
+	vertical-align: top;
+	height: 100%;
+}
+
+TD.contents {
+	padding-top: 0px;
+	padding-bottom: 16px;
+	padding-left: 0px;
+	padding-right: 15px;
+	height: 100%;
+	vertical-align: top;
+	border: 0px solid red;
+	text-align: left;
+}
+
+td.mrtcontent {
+	padding-top: 0px;
+	padding-bottom: 16px;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 100%;
+	vertical-align: text-top;
+	border: 0px solid red;
+	width: 160px;
+}
+
+TD.contentl {
+	padding-top: 0px;
+	padding-bottom: 16px;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 100%;
+	vertical-align: top;
+	border: 0px solid red;
+	text-align: left;
+	width: 100%;
+}
+
+table.mtable {
+	width: 990px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	BACKGROUND-COLOR: #ffffff;
+	vertical-align: text-top;
+	height: 100%;
+	border: 0px solid red;
+}
+
+table.homepage {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	height: 100%;
+}
+
+table.mcontentl {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	height: 100%;
+	vertical-align: text-top;
+	border: 3px solid red;
+}
+
+table.mcontents {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	height: 100%;
+	vertical-align: text-top;
+	border: 1px solid red;
+}
+
+table.topnav {
+	COLOR: #4e4e4e;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	BACKGROUND-COLOR: #ffffff;
+}
+
+TABLE.topnav A {
+	COLOR: #4e4e4e;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+TABLE.topnav A:hover {
+	COLOR: #000000;
+	text-decoration: none;
+}
+
+TD.padding {
+	padding-right: 0px;
+	padding-left: 3px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	vertical-align: text-top;
+}
+
+td.mmenu {
+	width: 195px;
+	vertical-align: top;
+	padding: 0px 0px 10px 0px;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Franklin Gothic Demi Cond, Verdana;
+}
+
+table.menu {
+	width: 195px;
+	height: 540px;
+	background: url(../images/menu-bg.gif);
+	background-repeat: no-repeat;
+	padding: 0px 0px 0px 0px;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Franklin Gothic Demi Cond;
+	margin: 0px 0px 0px 0px;
+}
+
+td.menu {
+	vertical-align: top;
+	padding: 2px 0px 0px 0px;
+}
+
+TD {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+TEXTAREA {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+INPUT {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+SELECT {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+
+A {
+	TEXT-DECORATION: underline
+}
+
+TABLE.RT {
+	BORDER-RIGHT: black 2px solid;
+	BORDER-TOP: gray 1px solid;
+	BORDER-LEFT: gray 1px solid;
+	BORDER-BOTTOM: black 2px solid;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #ffffff;
+}
+
+TABLE.RT TD {
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 3px;
+	PADDING-TOP: 3px
+}
+
+TABLE.RT TR.Headings {
+	FONT-WEIGHT: bolder;
+	TEXT-DECORATION: underline
+}
+
+TR.TitleRow {
+	BACKGROUND-COLOR: gray
+}
+
+TR.TitleRow TD {
+	COLOR: white
+}
+
+TABLE.RT TR.HEADER TD A {
+	COLOR: white
+}
+
+TABLE.RT TR.GrayHeader {
+	
+}
+
+TABLE.RT TR.GrayHeader TD {
+	FONT-WEIGHT: bolder;
+	COLOR: white;
+	BACKGROUND-COLOR: silver
+}
+
+TABLE.RT .ltgraywb {
+	BORDER-RIGHT: 1px solid;
+	BORDER-TOP: 1px solid;
+	FONT-WEIGHT: bolder;
+	BORDER-LEFT: 1px solid;
+	BORDER-BOTTOM: 1px solid;
+	BACKGROUND-COLOR: #cecece;
+}
+
+TD.content {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	BACKGROUND-COLOR: #ffffff;
+}
+
+TD.mrtcontent {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	vertical-align: text-top;
+	BORDER: 0px solid;
+}
+
+TD.pcart {
+	padding-right: 0px;
+	padding-left: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 6px;
+	width: 360px;
+	vertical-align: middle;
+	TEXT-ALIGN: center;
+}
+
+table.topnav2 td {
+	COLOR: #151414;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 0px 4px 0px 4px;
+}
+
+table.cart {
+	padding: 0px 0px 0px 0px;
+}
+
+.title1 {
+	FONT-FAMILY: Verdana
+}
+
+TD.gradient {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9pt;
+	BACKGROUND-REPEAT: repeat-y;
+	FONT-FAMILY: Verdana
+}
+
+.title2 {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10pt;
+	FONT-FAMILY: Verdana;
+	COLOR: #d92d39;
+	padding: 0px 0px 5px 0px;
+}
+
+.title3 {
+	COLOR: #24282b;
+	BACKGROUND-COLOR: #939da9;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10pt;
+}
+
+.title4 {
+	FONT-WEIGHT: bold;
+	FONT-FAMILY: Verdana
+}
+
+.title4 A {
+	FONT-WEIGHT: bold;
+	COLOR: #CE1126;
+	TEXT-DECORATION: none
+}
+
+.title4 A:hover {
+	COLOR: #333232;
+	TEXT-DECORATION: underline
+}
+
+TABLE.featuredproduct TD.title {
+	PADDING-RIGHT: 4px;
+	PADDING-LEFT: 8px;
+	PADDING-BOTTOM: 1px;
+	PADDING-TOP: 1px
+}
+
+TABLE.featuredproduct TD.title A {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12pt;
+	FONT-FAMILY: Verdana;
+	TEXT-DECORATION: none
+}
+
+TABLE.featuredproduct TD.snipplet {
+	padding: 8px 2px 8px 2px;
+}
+
+TABLE.featuredproduct TD.snipplet A {
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: bold;
+	COLOR: #bc2925;
+}
+
+TABLE.featuredproduct TD.snipplet A:hover {
+	TEXT-DECORATION: underline;
+	COLOR: #d92d39;
+}
+
+A.more {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10pt;
+}
+
+TD.header A {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: none;
+	color: #848484;
+}
+
+TD.header A:hover {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: NONE;
+	color: #D92D39;
+}
+
+TD.products {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+TD.products A {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: none;
+	color: #e4d193;
+}
+
+TD.products A:hover {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: underline;
+	color: #e4d193;
+}
+
+TD.hotitems {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	color: #d09004;
+}
+
+TD.hotitems A {
+	FONT-WEIGHT: NORMAL;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: underline;
+	color: #f5f0a8;
+}
+
+TD.hotitems A:hover {
+	FONT-WEIGHT: NORMAL;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	TEXT-DECORATION: NONE;
+	color: #f5f0a8;
+}
+
+TABLE.featuredproduct {
+	BORDER-RIGHT: #d2d2d2 1px solid;
+	BORDER-TOP: #d2d2d2 1px solid;
+	BORDER-LEFT: #d2d2d2 1px solid;
+	BORDER-BOTTOM: #d2d2d2 1px solid;
+	margin: 0px 4px 4px 0px;
+}
+
+TD.gradient {
+	vertical-align: text-top;
+	padding: 0px 0px 0px 20px;
+	BACKGROUND-IMAGE: url(/assets/images/bg-gradient.jpg);
+	width: 600px;
+	COLOR: #263f55;
+}
+
+TABLE.featuredproduct TD.topcell {
+	BORDER-RIGHT: #d5d8dd 1px solid;
+	BORDER-TOP: #d5d8dd 1px solid;
+	BORDER-LEFT: #d5d8dd 1px solid
+}
+
+TABLE.featuredproduct TD.title {
+	BACKGROUND-COLOR: #939da9
+}
+
+TABLE.featuredproduct TD.title A {
+	COLOR: #263f55
+}
+
+.title1 {
+	COLOR: #d92d39;
+}
+
+TR.altrow {
+	BACKGROUND-COLOR: #ebecee
+}
+
+TABLE.GreyContent {
+	BACKGROUND-COLOR: #ebecee;
+	margin: 0px 15px 0px 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 95%;
+}
+
+TABLE.RT TR.oddrow {
+	BACKGROUND-COLOR: #ebecee;
+}
+
+/* overwrite with selector if available
+.oddrow class is depreciated */
+table.RT tr:nth-child(2n) {
+	background-color: #ffffff;
+}
+
+table.RT tr:nth-child(2n+1) {
+	background-color: #ebecee;
+}
+
+table.RT tr.HEADER {
+	background-color: #ce0000;
+}
+
+TABLE.RT TR.HEADER TD {
+	/*BORDER-RIGHT: #7e908b 1px solid;*/
+	/*BORDER-TOP: #7e908b 1px solid;*/
+	FONT-WEIGHT: bolder;
+	/*BORDER-LEFT: #7e908b 1px solid;*/
+	COLOR: #FFFFFF;
+	/*BORDER-BOTTOM: #7e908b 1px solid*/
+}
+
+TABLE.Tools TD {
+	COLOR: #212121;
+}
+
+#box-table-a {
+	font-size: 11px;
+	text-align: left;
+	margin: 5px 0px 0px; 0 px;
+	border-collapse: collapse;
+}
+
+#box-table-a td {
+	padding: 7px 0px 7px 0px;
+	font-size: 10px;
+	border-bottom: 1px solid #666666;
+}
+
+TD.cart {
+	COLOR: #ffffff;
+	background-color: #898989;
+}
+
+TD.cart A {
+	COLOR: #ffffff;
+	background-color: #898989;
+}
+
+TD.cart A:hover {
+	COLOR: #ffffff;
+	background-color: #898989;
+}
+
+img {
+	border: 0px solid #000000;
+}
+
+table.body {
+	width: 600px;
+	padding: 0px 0px 0px 0px;
+	spacing: 0px 0px 0px 0px;
+}
+
+table.mainimage {
+	height: 520;
+	padding: 0px 0px 0px 0px;
+	background: url(../images/main-bg.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+}
+
+td.padded {
+	padding: 2px 2px 2px 2px;
+	text-align: center;
+}
+
+.fb {
+	padding-top: 3px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	COLOR: #ffffff;
+	text-align: center;
+}
+
+.fb-like {
+	padding-top: 6px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	color: #FFFFFF;
+	width: 221px;
+	height: 54px;
+	background: url(../images/fb-back.jpg);
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+
+table.menu2 {
+	width: 225px;
+	/* height:240px;*/
+	background: url(../images/menu2-bg.gif);
+	background-repeat: no-repeat;
+	vertical-align: top;
+	padding: 0px 0px 0px 0px;
+	spacing: 0px 0px 0px 0px;
+}
+
+.idmenu a {
+	width: 218px;
+	height: 78px;
+	background: url(../images/rollover.jpg) 0 0;
+	display: block;
+	font-size: 10px;
+	font-family: arial;
+	color: #bdbcba;
+	text-decoration: none;
+}
+
+.idmenu a:hover {
+	background-position: 0 -81px;
+}
+
+.menubody {
+	padding: 2px 10px 0px 105px;
+	font-family: arial;
+	color: #bdbcba;
+	vertical-align: middle font-size: 10px;
+	font-weight: normal;
+	line-height: 11px;
+}
+
+.menutitle {
+	padding: 9px 4px 0px 105px;
+	font-family: Franklin Gothic Demi;
+	color: #e3e2e1;
+	vertical-align: middle font-size: 12px;
+	font-weight: normal;
+}
+
+img.rmenu {
+	float: left;
+	margin: 4px 0px 0px; 0 px;
+	padding: 1px 5px 5px 5px;
+	border: 0px;
+}
+
+table.footerw td {
+	FONT-FAMILY: Verdana;
+	COLOR: #000000;
+	vertical-align: top;
+	line-height: 15px;
+	font-size: 12px;
+	font-family: Franklin Gothic Medium, Calibri, Verdana, Arial;
+}
+
+table.footerw td A {
+	TEXT-DECORATION: none;
+	COLOR: #000000;
+	font-size: 12px;
+}
+
+table.footerw td  A:hover {
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+	font-size: 12px;
+}
+
+TD.footer {
+	/*position: absolute; 
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;*/
+	background-color: #888;
+	TEXT-ALIGN: right;
+}
+
+td.footer2 A {
+	COLOR: #000000;
+	font-size: 10px;
+	font-weight: normal;
+	text-decoration: none;
+	line-height: 16px;
+}
+
+td.footer2 A:hover {
+	COLOR: #000000;
+	text-decoration: none;
+}
+
+ul.winch {
+	line-height: 18px;
+}
+
+.service-centers {
+	width: 100%;
+}
+
+.service-centers td {
+	width: 30%;
+	vertical-align: top;
+}
+
+/* overwrite with selector if available
+.oddrow class is depreciated */
+table.altrows tr:nth-child(2n) {
+	background-color: #ffffff;
+}
+
+table.altrows tr:nth-child(2n+1) {
+	background-color: #ebecee;
+}
+
+.tdAvailability {
+	background-color: #900;
+}
+
+.txtAvailability {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #FFF;
+}
+
+.tstAvailailbity {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.tableImgGallery {
+	background-color: #ebecee;
+	border-width: 1px;
+}
+;
