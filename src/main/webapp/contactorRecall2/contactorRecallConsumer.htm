@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<title>Contactor Recall</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="contactorRecall.css">
+</head>
+<body>
+	<div class="mainDiv">
+		<table class="logoAndTitleTable">
+			<tr>
+				<td>
+					<a href="/index.shtml"><img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+					<span class="titleSpan">ATV Contactor Recall</span>
+				</td>
+			</tr>
+		</table>
+		<table class="formTable">
+			<tr>
+				<td align="right">Please Select ATV Make:</td>
+				<td width="60%">
+					<select name="make"	id="make" onchange="next();">
+						<option value="1">Please Select</option>
+						<option value="Arctic Cat">Arctic Cat</option>
+						<option value="Bombardier">Bombardier</option>
+						<option value="Can-Am">Can-Am</option>
+						<option value="Honda">Honda</option>
+						<option value="Kawasaki">Kawasaki</option>
+						<option value="Kubota">Kubota</option>
+						<option value="Kymco">Kymco</option>
+						<option value="Polaris">Polaris</option>
+						<option value="Suzuki">Suzuki</option>
+						<option value="Yamaha">Yamaha</option>
+						<option value="Other">Other</option>
+					</select> 
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<script>
+	function next() {
+		var makeVal = $("#make").val();
+		if(makeVal != 1){
+
+			if(makeVal =="Arctic Cat"){
+				//if arctic cat, they have to get some special info, then go to the form
+				window.location = "arcticCat.htm";
+			}else{
+				//anything else and they go straight to the form
+				var url = "orderFormConsumer.htm?make=" + makeVal ;
+				window.location = url;
+			}
+
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<title>Contactor Recall</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="contactorRecall.css">
+</head>
+<body>
+<div class="mainDiv">
+	<table class="logoAndTitleTable">
+		<tr>
+			<td>
+				<a href="/index.shtml"><img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span class="titleSpan">ATV Contactor Recall</span>
+			</td>
+		</tr>
+	</table>
+	<form>
+		<table class="warnGreyBG">
+			<tr>
+				<td colspan="2">
+					<span class="formTitle">For Dealers:</span>
+					<br>
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">IMPORTANT MESSAGE TO DEALERS: Your main
+					business phone number will be your reference number for this
+					process.
+					<br>
+					<br>** Due to high demand, Warn is now allocating up to 3
+					contactors per dealer to start the recall program. Warn must
+					receive a completed Dealer Replacement Contactor Log accounting
+					for each contactor sent to dealer. Additional contactors are
+					available to dealer after returning completed log to Warn.
+					<br>
+					<br>
+					The Dealer Replacement Contactor Log/Labor Reimbursement
+					Form can be filed online by the completing the form on the link
+					below, or by submitting the completed log 
+					<a href="assets/Dealer_Replacement_Contactor_Log_10-20-06.pdf" target=new>Download Log</a> to WARN by fax or mail.<br>
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<td width="300" align="right" valign="top" NOWRAP>Enter your main business phone number:</td>
+				<td onkeypress="return phoneFilter(event);">
+					<input	name="phone" id="phone" type="text" value="" size="15"> format: 555-555-5555
+					<br>
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type=button value="Order Contactors"	onclick="next('order');"><br>
+					<br>
+					<input type=button	value="Submit Dealer Replacement Contactor Log (File Claim for Labor Reimbursement)" onclick="next('claim');"><br>
+					<br>
+					<a	href="assets/Dealer_Replacement_Contactor_Log_10-20-06.pdf" target=new>Download Log</a>
+				</td>
+			</tr>
+		</table> 
+		<input type=hidden name="subject" value=""> 
+		<input type=hidden name="jstest" value="">
+	</form>
+</div>
+<script>
+
+function next(actionType) {
+	
+	var pass = true;
+	var phone = $("#phone").val();
+
+
+	//validate phone
+	if (!phone){
+		pass = false;
+	}else{
+	
+		phone = phone.replace(" ", ""); //remove spaces
+		if(phone.length != 12) {
+			pass = false;
+		}else{
+			//make sure is in correct format
+			for (var x = 0; x < 12; x++) {
+				if (x != 3 && x != 7) {
+					if (isNaN(phone.charAt(x))) {
+						pass = false;
+					}
+				} else {
+					if (phone.charAt(x) != '-') {
+						pass = false;
+					}
+				}
+			}
+		}
+	}
+
+
+	if (pass) {
+		
+		if (actionType == "order") {
+			window.location = "orderFormDealer.htm?mode=create&phone=" + phone;
+		} else {
+			window.location = "laborReimbursement.htm?mode=create&phone="	+ phone;
+		}
+
+	}else{
+		alert("Phone number is not in the correct format 555-555-5555.");
+	}
+
+}
+
+function phoneFilter(evt) {
+
+	var keynum = evt.keyCode || e.which;
+	
+	var keychar = String.fromCharCode(keynum);
+	
+	var rval = true;
+	if (isNaN(keychar) && keychar != '-') {
+		rval = false;
+	}
+	return rval;
+}
+</script>
+</body>
+</html>

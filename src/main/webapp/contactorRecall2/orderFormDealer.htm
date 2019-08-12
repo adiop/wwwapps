@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<title>Contactor Recall Order</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="contactorRecall.css">
+	<script src="orderForm.js"></script>
+</head>
+<body>
+<div class="mainDiv">
+	<table class="logoAndTitleTable">
+		<tr>
+			<td>
+				<a href="/index.shtml">
+				<img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span class="titleSpan">ATV Contactor Recall</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<span class="formTitle">Dealer Replacement Contactor Order Form:</span>
+	<!-- ep: some of this code is duplicate of code on consumer order form. opted for clarity and separation of concerns. -->
+	<form name="recall" id="recall">
+		<input type=hidden name="userType" id="userType" value="2"><!-- 2 means dealer -->
+		<input type=hidden name="subject" id="subject" value=""> 
+		<input type=hidden name="jstest" id="jstest" value="">		
+		<table class="formTable">
+			<tr>
+				<td id="nameCell">Contact Name:</td>
+				<td>
+					<input name="name" id="name" type="text" value="" size="30" maxlength="100" >
+				</td>
+			</tr>
+			<tr>
+				<td>Company:</td>
+				<td>
+					<input name="company" id="company" type="text" value=""	size="30" maxlength="100"  >
+				</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>
+					<input name="address1" id="address1" type="text" value="" size="30" maxlength="200"> no PO Boxes
+				</td>
+			</tr>
+			<tr>
+				<td>Address Line2:</td>
+				<td>
+					<input name="address2" id="address2" type="text" value="" size="30" maxlength="200">
+				</td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td>
+					<input name="city" id="city" type="text" value="" size="30" maxlength="100">
+				</td>
+			</tr>
+			<tr>
+				<td>State/Province:</td>
+				<td>
+					<select name="state" id="state" onchange="stateChanged();" >
+						<option value="-1">Please Select</option>
+						<option value="AL~US">Alabama</option>
+						<option value="AK~US">Alaska</option>
+						<option value="AB~CA">Alberta</option>
+						<option value="AZ~US">Arizona</option>
+						<option value="AR~US">Arkansas</option>
+						<option value="BC~CA">British Columbia</option>
+						<option value="CA~US">California</option>
+						<option value="CO~US">Colorado</option>
+						<option value="CT~US">Connecticut</option>
+						<option value="DE~US">Delaware</option>
+						<option value="DC~US">District of Columbia</option>
+						<option value="FL~US">Florida</option>
+						<option value="GA~US">Georgia</option>
+						<option value="HI~US">Hawaii</option>
+						<option value="ID~US">Idaho</option>
+						<option value="IL~US">Illinois</option>
+						<option value="IN~US">Indiana</option>
+						<option value="IA~US">Iowa</option>
+						<option value="KS~US">Kansas</option>
+						<option value="KY~US">Kentucky</option>
+						<option value="LA~US">Louisiana</option>
+						<option value="ME~US">Maine</option>
+						<option value="MB~CA">Manitoba</option>
+						<option value="MD~US">Maryland</option>
+						<option value="MA~US">Massachusetts</option>
+						<option value="MI~US">Michigan</option>
+						<option value="MN~US">Minnesota</option>
+						<option value="MS~US">Mississippi</option>
+						<option value="MO~US">Missouri</option>
+						<option value="MT~US">Montana</option>
+						<option value="NE~US">Nebraska</option>
+						<option value="NV~US">Nevada</option>
+						<option value="NB~CA">New Brunswick</option>
+						<option value="NH~US">New Hampshire</option>
+						<option value="NJ~US">New Jersey</option>
+						<option value="NM~US">New Mexico</option>
+						<option value="NY~US">New York</option>
+						<option value="NF~CA">Newfoundland</option>
+						<option value="NL~CA">Newfoundland and Labrador</option>
+						<option value="NC~US">North Carolina</option>
+						<option value="ND~US">North Dakota</option>
+						<option value="NT~CA">Northwest Territories</option>
+						<option value="NS~CA">Nova Scotia</option>
+						<option value="NU~CA">Nunavut</option>
+						<option value="OH~US">Ohio</option>
+						<option value="OK~US">Oklahoma</option>
+						<option value="ON~CA">Ontario</option>
+						<option value="OR~US">Oregon</option>
+						<option value="PA~US">Pennsylvania</option>
+						<option value="PE~CA">Prince Edwards Island</option>
+						<option value="PR~US">Puerto Rico</option>
+						<option value="QC~CA">Quebec</option>
+						<option value="RI~US">Rhode Island</option>
+						<option value="SK~CA">Saskatchewan</option>
+						<option value="SC~US">South Carolina</option>
+						<option value="SD~US">South Dakota</option>
+						<option value="TN~US">Tennessee</option>
+						<option value="TX~US">Texas</option>
+						<option value="UT~US">Utah</option>
+						<option value="VT~US">Vermont</option>
+						<option value="VA~US">Virginia</option>
+						<option value="WA~US">Washington</option>
+						<option value="WV~US">West Virginia</option>
+						<option value="WI~US">Wisconsin</option>
+						<option value="WY~US">Wyoming</option>
+						<option value="YK~CA">Yukon</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Zip Code/Postal Code:</td>
+				<td>
+					<input name="zip" id="zip" type="text" value="" size="30" maxlength="20" >
+				</td>
+			</tr>
+			<tr>
+				<td>Phone:</td>
+				<td><!--  if use diabled, field value not submitted, so use readonly -->
+					<input name="phone" id="phone" type="text" value="" size="30" readonly maxlength="20" >
+				</td>
+			</tr>
+			<tr>
+				<td>Fax:</td>
+				<td>
+					<input name="fax" id="fax" type="text" value="" size="30" maxlength="20" >
+				</td>
+			</tr>
+			<tr>
+				<td>E-mail Address:</td>
+				<td><input name="email" id="email" type="text" value="" size="30" maxlength="100" >
+			</tr>
+			<tr>
+				<td>Recall Alert Came From:</td>
+				<td>
+					<select name="means_of_notification" id="means_of_notification">
+						<option value="1">Please Select</option>
+						<option value="Direct mailing">Direct mailing</option>
+						<option value="Retail Store Poster">Retail Store Poster</option>
+						<option value="Magazine">Magazine</option>
+						<option value="Website">Website</option>
+						<option value="Phone Call">Phone Call</option>
+						<option value="Friend/Relative">Friend/Relative</option>
+						<option value="Newspaper">Newspaper</option>
+						<option value="Radio">Radio</option>
+						<option value="Television">Television</option>
+						<option value="E-mail">E-mail</option>
+						<option value="Fax">Fax</option>
+					</select>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td>
+					<select name="quantity" id="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+					**
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<input type="button" name="submitButton" id="submitButton" value="submit (soumettre)"	onclick="return save(event);"  />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:left;font-weight:normal;"><br>
+				** Due to high demand, Warn is now allocating up to 3 contactors per dealer to start the recall program. 
+				Warn must receive a completed Dealer Replacement Contactor Log accounting for each contactor sent to dealer.  
+				Additional contactors are available to dealer after returning completed log to Warn.
+				</td>
+			</tr>
+		</table> 
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<title>Contactor Recall Order</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="contactorRecall.css">
+	<script src="orderForm.js"></script>
+</head>
+<body>
+<div class="mainDiv">
+	<table class="logoAndTitleTable">
+		<tr>
+			<td>
+				<a href="/index.shtml"><img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span class="titleSpan">ATV Contactor Recall</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<span class="formTitle">Consumer Replacement Contactor Order Form:<br>(Bon de Commande de Contacteur de Rechange pour Consommateur)</span>
+	<form name="recall" id="recall">
+		<input type=hidden name="userType" id="userType" value="1">
+		<input type=hidden name=quantity id="quantity" value="1">
+		<input type=hidden name="subject" value=""> 
+		<input type=hidden name="jstest" value="">
+		<table class="formTable">
+			<tr>
+				<td>Name:</td>
+				<td>
+					<input name="name" id="name" type="text" value=""	size="30" maxlength="100">
+				</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>
+					<input name="address1" id="address1" type="text" value=""	size="30" maxlength="200"> no PO Boxes
+				</td>
+			</tr>
+			<tr>
+				<td>Address Line2:</td>
+				<td>
+					<input name="address2" id="address2" type="text" value="" size="30" maxlength="200">
+				</td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td>
+					<input name="city" id="city" type="text" value="" size="30" maxlength="100">
+				</td>
+			</tr>
+			<tr>
+				<td>State/Province:</td>
+				<td>
+					<select name="state" id="state" onchange="stateChanged();">
+						<option value="-1">Please Select</option>
+						<option value="AL~US">Alabama</option>
+						<option value="AK~US">Alaska</option>
+						<option value="AB~CA">Alberta</option>
+						<option value="AZ~US">Arizona</option>
+						<option value="AR~US">Arkansas</option>
+						<option value="BC~CA">British Columbia</option>
+						<option value="CA~US">California</option>
+						<option value="CO~US">Colorado</option>
+						<option value="CT~US">Connecticut</option>
+						<option value="DE~US">Delaware</option>
+						<option value="DC~US">District of Columbia</option>
+						<option value="FL~US">Florida</option>
+						<option value="GA~US">Georgia</option>
+						<option value="HI~US">Hawaii</option>
+						<option value="ID~US">Idaho</option>
+						<option value="IL~US">Illinois</option>
+						<option value="IN~US">Indiana</option>
+						<option value="IA~US">Iowa</option>
+						<option value="KS~US">Kansas</option>
+						<option value="KY~US">Kentucky</option>
+						<option value="LA~US">Louisiana</option>
+						<option value="ME~US">Maine</option>
+						<option value="MB~CA">Manitoba</option>
+						<option value="MD~US">Maryland</option>
+						<option value="MA~US">Massachusetts</option>
+						<option value="MI~US">Michigan</option>
+						<option value="MN~US">Minnesota</option>
+						<option value="MS~US">Mississippi</option>
+						<option value="MO~US">Missouri</option>
+						<option value="MT~US">Montana</option>
+						<option value="NE~US">Nebraska</option>
+						<option value="NV~US">Nevada</option>
+						<option value="NB~CA">New Brunswick</option>
+						<option value="NH~US">New Hampshire</option>
+						<option value="NJ~US">New Jersey</option>
+						<option value="NM~US">New Mexico</option>
+						<option value="NY~US">New York</option>
+						<option value="NF~CA">Newfoundland</option>
+						<option value="NL~CA">Newfoundland and Labrador</option>
+						<option value="NC~US">North Carolina</option>
+						<option value="ND~US">North Dakota</option>
+						<option value="NT~CA">Northwest Territories</option>
+						<option value="NS~CA">Nova Scotia</option>
+						<option value="NU~CA">Nunavut</option>
+						<option value="OH~US">Ohio</option>
+						<option value="OK~US">Oklahoma</option>
+						<option value="ON~CA">Ontario</option>
+						<option value="OR~US">Oregon</option>
+						<option value="PA~US">Pennsylvania</option>
+						<option value="PE~CA">Prince Edwards Island</option>
+						<option value="PR~US">Puerto Rico</option>
+						<option value="QC~CA">Quebec</option>
+						<option value="RI~US">Rhode Island</option>
+						<option value="SK~CA">Saskatchewan</option>
+						<option value="SC~US">South Carolina</option>
+						<option value="SD~US">South Dakota</option>
+						<option value="TN~US">Tennessee</option>
+						<option value="TX~US">Texas</option>
+						<option value="UT~US">Utah</option>
+						<option value="VT~US">Vermont</option>
+						<option value="VA~US">Virginia</option>
+						<option value="WA~US">Washington</option>
+						<option value="WV~US">West Virginia</option>
+						<option value="WI~US">Wisconsin</option>
+						<option value="WY~US">Wyoming</option>
+						<option value="YK~CA">Yukon</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Zip Code/Postal Code:</td>
+				<td>
+					<input name="zip" id="zip" type="text" value="" size="30" maxlength="20">
+				</td>
+			</tr>
+			<tr>
+				<td>Phone:</td>
+				<td>
+					<input name="phone" id="phone" type="text" value="" size="30" maxlength="20">&nbsp; format: 555-555-5555
+				</td>
+			</tr>
+			<tr>
+				<td>Fax:</td>
+				<td>
+					<input name="fax" id="fax" type="text" value="" size="30" maxlength="20">&nbsp; <i>optional</i>
+				</td>
+			</tr>
+			<tr>
+				<td>E-mail Address:</td>
+				<td><input name="email" id="email" type="text" value="" size="30" maxlength="100">&nbsp; <i>optional</i>
+			</tr>
+			<tr>
+				<td>Recall Alert Came From:</td>
+				<td>
+					<select name="means_of_notification" id="means_of_notification">
+						<option value="1">Please Select</option>
+						<option value="Direct mailing">Direct mailing</option>
+						<option value="Retail Store Poster">Retail Store Poster</option>
+						<option value="Magazine">Magazine</option>
+						<option value="Website">Website</option>
+						<option value="Phone Call">Phone Call</option>
+						<option value="Friend/Relative">Friend/Relative</option>
+						<option value="Newspaper">Newspaper</option>
+						<option value="Radio">Radio</option>
+						<option value="Television">Television</option>
+						<option value="E-mail">E-mail</option>
+						<option value="Fax">Fax</option>
+					</select>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>Winch:</td>
+				<td>
+					<select name="product" id="product">
+						<option value="1">Please Select</option>
+						<option value="A2500">A2500</option>
+						<option value="2.5ci">2.5ci</option>
+						<option value="3.0ci">3.0ci</option>
+						<option value="T2500">T2500</option>
+						<option value="Z3500">Z3500</option>
+						<option value="Other">Other</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Date Winch Purchased:&nbsp;</td>
+				<td>
+					<input name="date_purchased" id="date_purchased" type="text" value="" size="30" maxlength="50"> (Sold between 05/2001 to 09/2005)
+				</td>
+			</tr>
+			<tr>
+				<td>ATV Make:</td>
+				<td><!-- js sets this to be whatever the make argument was that was passed in URL -->
+					<select name="make" id="make">
+						<option value="1">Please Select</option>
+						<option value="Arctic Cat">Arctic Cat</option>
+						<option value="Bombardier">Bombardier</option>
+						<option value="Can-Am">Can-Am</option>
+						<option value="Honda">Honda</option>
+						<option value="John Deere">John Deere</option>
+						<option value="Kawasaki">Kawasaki</option>
+						<option value="Kubota">Kubota</option>
+						<option value="Kymco">Kymco</option>
+						<option value="Polaris">Polaris</option>
+						<option value="Suzuki">Suzuki</option>
+						<option value="Yamaha">Yamaha</option>
+						<option value="Other">Other</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>ATV Model:</td>
+				<td><input name="model" id="model" type="text" value="" size="30" maxlength="100"></td>
+			</tr>
+			<tr>
+				<td>ATV Year:</td>
+				<td colspan="2">
+					<input name="year" id="year" type="text" value=""	size="30" maxlength="10">
+				</td>
+			</tr>
+			<tr>
+				<td>ATV VIN:</td>
+				<td>
+					<input name="vin" id="vin" type="text" value="" size="30" maxlength="100"> &nbsp;<b>Explanation required if no VIN</b>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr class="vinExcuseRow" >
+				<td colspan="2" style="text-align:center;">The field below is for 'no VIN
+					explanation only'. If you have a question Please contact WARN
+					Customer Service at <a href="mailto:contact@warn.com">contact@warn.com</a>
+					or Call 866-408-3767
+				</td>
+			</tr>
+			<tr class="vinExcuseRow">
+				<td>Explanation:</td>
+				<td style="height: 40px;">
+					<textarea rows=6 cols=50 name="notes" id="notes"></textarea>
+				</td>
+			</tr>
+			<tr id="outsideClaimsRow" style="color:#bbb;">
+				<td valign="top">
+					<b>FOR CLAIMS OUTSIDE THE US:</b>
+				</td>
+				<td valign="top">I acknowledge that all services related to this invoice were performed outside the US.<br>
+					<input type="radio"	name="acknowledged_service_outside_us" value="Yes"	onclick="acknowledgedChanged();" DISABLED>Yes &nbsp;&nbsp;
+					<input type="radio"	name="acknowledged_service_outside_us" value="No" checked onclick="acknowledgedChanged();" DISABLED>No
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="button" name="submitButton" id="submitButton" value="submit (soumettre)"	onclick="return save(event);" disabled />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:left"><br>** Quantity is limited to 1 contactor per request. 
+				If you own more than one WARN product that qualifies for this recall, please submit an additional request.
+				</td>
+			</tr>
+		</table> 
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<title>Contactor Recall Order</title>
+	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" href="contactorRecall.css">
+	<script src="orderConfirm.js"></script>
+</head>
+<body>
+<div class="mainDiv">
+	<table class="logoAndTitleTable">
+		<tr>
+			<td>
+				<a href="/index.shtml"><img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+				<span class="titleSpan">ATV Contactor Recall</span>
+			</td>
+		</tr>
+	</table>
+	<h2><span id="errorMsg"></span></h2>
+	<div id="details" style="display:none;">
+		<h2>Please print for your records</h2>
+		<table class="formTable">
+			<tr>
+				<td id="nameName">Name:</td>
+				<td id="name"></td>
+			</tr>
+			<tr id="companyRow">
+				<td>Company:</td>
+				<td id="company"></td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>
+					<span id="address1"></span>
+					<span id="address2"></span>
+					<span id="city"></span>
+					<span id="stateCode"></span>
+					<span id="zip"></span>
+					<span id="countryCode"></span>
+				</td>
+			</tr>	
+			<tr>
+				<td>Phone:</td>
+				<td id="phone"></td>
+			</tr>	
+			<tr>
+				<td>ATV Vin:</td>
+				<td id="vin"></td>
+			</tr>
+		</table>
+		<br>Your replacement Contactor will be shipped within 3 business days. &nbsp;Expect delivery in 7-10 days.
+		<div id="backToDealerDiv">
+		</div>
+	</div>
+</div>
+</body>
+</html>
