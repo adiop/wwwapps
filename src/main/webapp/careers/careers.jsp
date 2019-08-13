@@ -21,7 +21,7 @@
 <table width="100%" border="0" height="50px">
 	<tr>
 		<td align="left">
-		<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+		<a href="http://www.warn.com"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
 		<span style="font-size:26px;">Career Opportunities</span>
 		</td>
 	</tr>
@@ -86,12 +86,6 @@
 		<table>
 			<tr><td colspan="3"><b>Our locations:</b></td></tr>
 			<tr>
-				<td valign="top">13270 SE Pheasant Ct.<br>
-					Milwaukie,	OR 97022<br>
-					<a	href="http://maps.google.com/maps?q=13270+SE+Pheasant+Ct.&hl=en&sll=45.395181,-122.588791&sspn=0.010547,0.017145&vpsrc=0&hnear=13270+SE+Pheasant+Ct,+Milwaukie,+Clackamas,+Oregon+97222&t=h&z=16"
-						target=_new><font size="1">Google Maps</font></a>
-				</td>
-				<td width=30>Or</td>
 				<td valign=top width=250>12900 SE Capps Road<br>
 					Clackamas, OR 97015<br>
 					<a href="http://maps.google.com/maps?q=12900+SE+Capps+Road&hl=en&sll=45.426928,-122.589829&sspn=0.010542,0.017145&vpsrc=0&hnear=12900+SE+Capps+Rd,+Clackamas,+Oregon+97015&t=h&z=16"
@@ -149,8 +143,8 @@
 		<br>
 		<br>
 		<div id="hr_item" align=center>
-			<a href="http://www.dovercorporation.com">
-				<img src="a-dover-company.gif" border=0>
+			<a href="http://www.lkqcorp.com">
+				<img src="WF000LKQ.jpg" border=0>
 			</a>
 		</div>
 		<br>

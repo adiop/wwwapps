@@ -48,7 +48,7 @@ String requestTypeName = WSponsorship.getRequestTypeNameForID(requestTypeID);
 <table width="100%" border="0" height="50px">
 	<tr>
 		<td align="left">
-		<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
+		<a href="http://www.warn.com"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
 		<span style="font-size:26px;">Corporate: Sponsorship Request</span>
 		</td>
 	</tr>
