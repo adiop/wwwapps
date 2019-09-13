@@ -1,0 +1,42 @@
+<!--#include virtual="/corporate/ReplacementParts/parts_view_include.shtml" -->
+<img id="partsview" src="/corporate/ReplacementParts/parts/40/39641_REV_A0_EXPLODED.gif" usemap="#parts_list">
+<map name="parts_list" class="wmap">
+<area shape="circle" coords="55,131,12" href="javascript:alert('adding: 38626');" title="38626" >
+<area shape="circle" coords="293,197,12" href="javascript:alert('adding: 32408');" title="32408" >
+<area shape="circle" coords="344,187,12" href="javascript:alert('adding: 39968');" title="39968" >
+<area shape="circle" coords="641,119,12" href="javascript:alert('adding: 13848');" title="13848" >
+<area shape="circle" coords="597,260,12" href="javascript:alert('adding: 25986');" title="25986" >
+<area shape="circle" coords="527,263,12" href="javascript:alert('adding: 13831');" title="13831" >
+<area shape="circle" coords="496,276,12" href="javascript:alert('adding: 13699');" title="13699" >
+<area shape="circle" coords="170,312,12" href="javascript:alert('adding: 60451');" title="60451" >
+<area shape="circle" coords="75,327,12" href="javascript:alert('adding: 2090');" title="2090" >
+<area shape="circle" coords="55,397,12" href="javascript:alert('adding: 39433');" title="39433" >
+<area shape="circle" coords="520,304,12" href="javascript:alert('adding: 27110');" title="27110" >
+<area shape="circle" coords="463,339,12" href="javascript:alert('adding: 16463');" title="16463" >
+<area shape="circle" coords="433,337,12" href="javascript:alert('adding: 26107');" title="26107" >
+<area shape="circle" coords="391,343,12" href="javascript:alert('adding: 39438');" title="39438" >
+<area shape="circle" coords="350,366,12" href="javascript:alert('adding: 39480');" title="39480" >
+<area shape="circle" coords="317,389,12" href="javascript:alert('adding: 13831');" title="13831" >
+<area shape="circle" coords="291,434,12" href="javascript:alert('adding: 39433');" title="39433" >
+<area shape="circle" coords="238,433,12" href="javascript:alert('adding: 39433');" title="39433" >
+<area shape="circle" coords="224,465,12" href="javascript:alert('adding: 13848');" title="13848" >
+<area shape="circle" coords="176,490,12" href="javascript:alert('adding: 39433');" title="39433" >
+<area shape="circle" coords="122,521,12" href="javascript:alert('adding: 39436');" title="39436" >
+<area shape="circle" coords="97,585,12" href="javascript:alert('adding: 26744');" title="26744" >
+<area shape="circle" coords="39,547,12" href="javascript:alert('adding: 15901');" title="15901" >
+<area shape="circle" coords="539,390,12" href="javascript:alert('adding: 5320');" title="5320" >
+<area shape="circle" coords="601,363,12" href="javascript:alert('adding: 21012');" title="21012" >
+<area shape="circle" coords="677,429,12" href="javascript:alert('adding: 37131');" title="37131" >
+<area shape="circle" coords="682,475,12" href="javascript:alert('adding: 13850');" title="13850" >
+<area shape="circle" coords="599,549,12" href="javascript:alert('adding: 13848');" title="13848" >
+<area shape="circle" coords="475,478,12" href="javascript:alert('adding: 39481');" title="39481" >
+<area shape="circle" coords="333,521,12" href="javascript:alert('adding: 13826');" title="13826" >
+<area shape="circle" coords="476,584,12" href="javascript:alert('adding: 25986');" title="25986" >
+<area shape="circle" coords="450,621,12" href="javascript:alert('adding: 34342');" title="34342" >
+<area shape="circle" coords="383,671,12" href="javascript:alert('adding: 28432');" title="28432" >
+<area shape="circle" coords="344,700,12" href="javascript:alert('adding: 25986');" title="25986" >
+<area shape="circle" coords="279,714,12" href="javascript:alert('adding: 14584');" title="14584" >
+<area shape="circle" coords="228,714,12" href="javascript:alert('adding: 14584');" title="14584" >
+<area shape="circle" coords="611,764,12" href="javascript:alert('adding: 5742');" title="5742" >
+</map>
+<script language"JavaScript">
