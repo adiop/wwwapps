@@ -1,0 +1,24 @@
+<!--#include virtual="/corporate/ReplacementParts/parts_view_include.shtml" -->
+<img id="partsview" src="/corporate/ReplacementParts/parts/4/37492_REV_C0_EXPLODED.gif" usemap="#parts_list">
+<map name="parts_list" class="wmap">
+<area shape="circle" coords="162,93,7" href="javascript:alert('adding: 8326');" title="8326" >
+<area shape="circle" coords="142,145,7" href="javascript:alert('adding: 37474');" title="37474" >
+<area shape="circle" coords="161,135,7" href="javascript:alert('adding: 7596');" title="7596" >
+<area shape="circle" coords="178,125,7" href="javascript:alert('adding: 37476');" title="37476" >
+<area shape="circle" coords="195,117,7" href="javascript:alert('adding: 8322');" title="8322" >
+<area shape="circle" coords="212,110,7" href="javascript:alert('adding: 15879');" title="15879" >
+<area shape="circle" coords="214,209,7" href="javascript:alert('adding: 8763');" title="8763" >
+<area shape="circle" coords="222,58,7" href="javascript:alert('adding: 3962');" title="3962" >
+<area shape="circle" coords="250,62,7" href="javascript:alert('adding: 9285');" title="9285" >
+<area shape="circle" coords="288,67,7" href="javascript:alert('adding: 8316');" title="8316" >
+<area shape="circle" coords="333,30,7" href="javascript:alert('adding: 6005');" title="6005" >
+<area shape="circle" coords="407,12,7" href="javascript:alert('adding: 2090');" title="2090" >
+<area shape="circle" coords="444,53,7" href="javascript:alert('adding: 7536');" title="7536" >
+<area shape="circle" coords="343,148,7" href="javascript:alert('adding: 15901');" title="15901" >
+<area shape="circle" coords="407,146,7" href="javascript:alert('adding: 26744');" title="26744" >
+<area shape="circle" coords="548,532,7" href="javascript:alert('adding: 38199');" title="38199" >
+<area shape="circle" coords="422,621,7" href="javascript:alert('adding: 38845');" title="38845" >
+<area shape="circle" coords="620,555,7" href="javascript:alert('adding: 33295');" title="33295" >
+<area shape="circle" coords="662,671,7" href="javascript:alert('adding: 28396');" title="28396" >
+</map>
+<script language"JavaScript">
