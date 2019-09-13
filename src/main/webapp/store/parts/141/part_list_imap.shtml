@@ -1,0 +1,48 @@
+<!--#include virtual="/corporate/ReplacementParts/parts_view_include.shtml" -->
+<img id="partsview" src="/corporate/ReplacementParts/parts/141/69670_REV_B1_EXPLODED.gif" usemap="#parts_list">
+<map name="parts_list" class="wmap">
+<area shape="circle" coords="663,24,7" href="javascript:alert('adding: 13850');" title="13850" >
+<area shape="circle" coords="690,73,7" href="javascript:alert('adding: 69819');" title="69819" >
+<area shape="circle" coords="582,33,7" href="javascript:alert('adding: 69818');" title="69818" >
+<area shape="circle" coords="537,45,7" href="javascript:alert('adding: 13848');" title="13848" >
+<area shape="circle" coords="555,141,7" href="javascript:alert('adding: 13874');" title="13874" >
+<area shape="circle" coords="520,66,7" href="javascript:alert('adding: 34339');" title="34339" >
+<area shape="circle" coords="570,220,7" href="javascript:alert('adding: 60451');" title="60451" >
+<area shape="circle" coords="497,72,7" href="javascript:alert('adding: 34342');" title="34342" >
+<area shape="circle" coords="459,68,7" href="javascript:alert('adding: 13826');" title="13826" >
+<area shape="circle" coords="476,161,7" href="javascript:alert('adding: 27372');" title="27372" >
+<area shape="circle" coords="477,215,7" href="javascript:alert('adding: 68606');" title="68606" >
+<area shape="circle" coords="470,240,7" href="javascript:alert('adding: 68615');" title="68615" >
+<area shape="circle" coords="506,425,7" href="javascript:alert('adding: 7608');" title="7608" >
+<area shape="circle" coords="418,83,7" href="javascript:alert('adding: 28432');" title="28432" >
+<area shape="circle" coords="438,239,7" href="javascript:alert('adding: 68615');" title="68615" >
+<area shape="circle" coords="421,345,7" href="javascript:alert('adding: 26107');" title="26107" >
+<area shape="circle" coords="362,27,7" href="javascript:alert('adding: 69822');" title="69822" >
+<area shape="circle" coords="368,81,7" href="javascript:alert('adding: 68044');" title="68044" >
+<area shape="circle" coords="327,91,7" href="javascript:alert('adding: 13848');" title="13848" >
+<area shape="circle" coords="371,247,7" href="javascript:alert('adding: 16463');" title="16463" >
+<area shape="circle" coords="385,246,7" href="javascript:alert('adding: 16463');" title="16463" >
+<area shape="circle" coords="326,191,7" href="javascript:alert('adding: 14584');" title="14584" >
+<area shape="circle" coords="360,379,7" href="javascript:alert('adding: 38314');" title="38314" >
+<area shape="circle" coords="363,429,7" href="javascript:alert('adding: 63979');" title="63979" >
+<area shape="circle" coords="308,282,7" href="javascript:alert('adding: 32455');" title="32455" >
+<area shape="circle" coords="248,216,7" href="javascript:alert('adding: 32408');" title="32408" >
+<area shape="circle" coords="272,293,7" href="javascript:alert('adding: 26006');" title="26006" >
+<area shape="circle" coords="290,381,7" href="javascript:alert('adding: 68615');" title="68615" >
+<area shape="circle" coords="206,81,7" href="javascript:alert('adding: 68379');" title="68379" >
+<area shape="circle" coords="221,159,7" href="javascript:alert('adding: 69823');" title="69823" >
+<area shape="circle" coords="258,389,7" href="javascript:alert('adding: 68615');" title="68615" >
+<area shape="circle" coords="242,413,7" href="javascript:alert('adding: 68607');" title="68607" >
+<area shape="circle" coords="198,410,7" href="javascript:alert('adding: 68608');" title="68608" >
+<area shape="circle" coords="138,296,7" href="javascript:alert('adding: 60451');" title="60451" >
+<area shape="circle" coords="126,179,7" href="javascript:alert('adding: 28396');" title="28396" >
+<area shape="circle" coords="58,20,7" href="javascript:alert('adding: 69820');" title="69820" >
+<area shape="circle" coords="46,127,7" href="javascript:alert('adding: 69821');" title="69821" >
+<area shape="circle" coords="23,237,7" href="javascript:alert('adding: 72568');" title="72568" >
+<area shape="circle" coords="66,313,7" href="javascript:alert('adding: 68608');" title="68608" >
+<area shape="circle" coords="35,326,7" href="javascript:alert('adding: 13455');" title="13455" >
+<area shape="circle" coords="21,453,7" href="javascript:alert('adding: 15901');" title="15901" >
+<area shape="circle" coords="129,485,7" href="javascript:alert('adding: 1402');" title="1402" >
+<area shape="circle" coords="122,503,7" href="javascript:alert('adding: 26744');" title="26744" >
+</map>
+<script language"JavaScript">
