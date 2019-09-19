@@ -130,14 +130,15 @@
 			backgrounds.
 		</div> <br> <br>
 		<div id="hr_item">
-			<b>WARN & DOVER VALUES:</b><br>
+			<b>WARN CORE VALUES:</b><br>
 			<ul>
-				<li>Collaborative Entrepreneurial Spirit</li>
-				<li>Winning Through Customers</li>
-				<li>High Ethical Standards</li>
-				<li>Openness and Trust</li>
-				<li>Expectation for Results</li>
-				<li>Respect and Value People</li>
+				<li>Never Compromise Trust</li>
+				<li>Honesty</li>
+				<li>Partner with Customers</li>
+				<li>Commitment</li>
+				<li>Teamwork</li>
+				<li>Personal Development</li>
+				<li>Fun</li>
 			</ul>
 		</div>
 		<br>
