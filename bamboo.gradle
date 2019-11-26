@@ -61,8 +61,8 @@ dependencies {
     providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
     providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
 
-    providedCompile "org.slf4j:slf4j-log4j12:1.7.12"
-    providedCompile "org.slf4j:jcl-over-slf4j:1.7.12"
+    compile "org.slf4j:slf4j-log4j12:1.7.12"
+    compile "org.slf4j:jcl-over-slf4j:1.7.12"
 
     providedCompile "javax.mail:mail:1.5.0-b01"
 
