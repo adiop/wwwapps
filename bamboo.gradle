@@ -83,6 +83,9 @@ dependencies {
     // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-healthchecks
     compile group: 'com.codahale.metrics', name: 'metrics-healthchecks', version: '3.0.2'
 
+    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-jvm
+    compile group: 'com.codahale.metrics', name: 'metrics-jvm', version: '3.0.2'
+
     //quartz
     compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
     compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.0'
