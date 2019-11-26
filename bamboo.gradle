@@ -64,7 +64,7 @@ dependencies {
     compile "org.slf4j:slf4j-log4j12:1.7.12"
     compile "org.slf4j:jcl-over-slf4j:1.7.12"
 
-    providedCompile "javax.mail:mail:1.5.0-b01"
+    compile "javax.mail:mail:1.5.0-b01"
 
     //needed for URL rewrite
     compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
