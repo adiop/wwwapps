@@ -1,0 +1,46 @@
+/* This CSS resource incorporates links to font software which is the
+   valuable copyrighted property of Type Network, Inc. and/or their
+   suppliers. You may not attempt to copy, install, redistribute,
+   convert, modify or reverse engineer this font software. Please
+   contact Type Network with any questions: www.typenetwork.com */
+
+
+	
+@font-face {
+	font-family: "Agency FB Bd";
+	font-display: auto;
+	font-weight: normal;
+	font-style: normal;
+	
+	src: url("//cloud.typenetwork.com/projectLicenseWeb/12026/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac");
+        src: url("//cloud.typenetwork.com/projectLicenseWeb/12026/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac#iefix") format("embedded-opentype"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12026/fontfile/woff2/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff2"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12026/fontfile/woff/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff");
+
+}
+	
+@font-face {
+	font-family: "Agency FB Bla";
+	font-display: auto;
+	font-weight: normal;
+	font-style: normal;
+	
+	src: url("//cloud.typenetwork.com/projectLicenseWeb/12027/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac");
+        src: url("//cloud.typenetwork.com/projectLicenseWeb/12027/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac#iefix") format("embedded-opentype"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12027/fontfile/woff2/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff2"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12027/fontfile/woff/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff");
+
+}
+	
+@font-face {
+	font-family: "Agency FB Bla Extd";
+	font-display: auto;
+	font-weight: normal;
+	font-style: normal;
+	
+	src: url("//cloud.typenetwork.com/projectLicenseWeb/12028/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac");
+        src: url("//cloud.typenetwork.com/projectLicenseWeb/12028/fontfile/eot/?44b70bd0858f54dc698c2348ff5a5041cf396eac#iefix") format("embedded-opentype"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12028/fontfile/woff2/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff2"),
+             url("//cloud.typenetwork.com/projectLicenseWeb/12028/fontfile/woff/?44b70bd0858f54dc698c2348ff5a5041cf396eac") format("woff");
+
+}

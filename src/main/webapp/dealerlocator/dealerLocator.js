@@ -285,9 +285,9 @@ function renderDetailsForDealer(thisDealer, i){
 	//each dealer gets one row in the searchResults table
 	rowHTML += "<tr><td colspan=3 ><a href=\"javascript:showPinDetails(" + i + ");\"><b>" + thisDealer.name + "</b></a></td></tr>";
 	rowHTML += "<tr>";
-	rowHTML += "<td valign=\"top\">" + getDetailColumn1( thisDealer, i) + "</td>";
+	rowHTML += "<td valign=\"top\" class='dealerInfo'>" + getDetailColumn1( thisDealer, i) + "</td>";
 	rowHTML += "<td valign=\"top\">" + buildImageAndHoursColumn( thisDealer) + "</td>";
-	rowHTML += "<td valign=\"top\">" + getDetailColumn3( thisDealer) + "</td>";
+	rowHTML += "<td valign=\"top\" >" + getDetailColumn3( thisDealer) + "</td>";
 	
 	rowHTML += "</tr>";
 	$("#searchResultsTable > tbody").append(rowHTML);
@@ -362,7 +362,7 @@ function getDetailColumn3(thisDealer){
 	
 	console.log("getDetailColumn3()");
 
-	var html = "<table>";
+	var html = "<table class='dealerCont'>";
 
 	if (thisDealer.redLetterRanking == 100) {
 		

@@ -1,253 +1,219 @@
-<%@ page import="java.util.*, com.warn.web.internet.Contact, com.maxmind.geoip.*"%>
-<!DOCTYPE html> 
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Cache-Control" content="no-store" />
-	<script> 
-		//these 2 script blocks are for AppD monitoring
-    	window['adrum-start-time']= new Date().getTime(); 
-	</script> 
-	<script src="/wwwapps/shared/adrum.js"></script>
-	<title>Contact Us</title>
-	
-	<link rel="stylesheet" href="/wwwapps/shared/wwwapps.css" type="text/css">
-	
-	<link rel="stylesheet" href="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.min.css">
-	<script src="/wwwapps/shared/jquery/jquery-3.1.0.js"></script>
-	<script src="/wwwapps/shared/jquery/jquery-ui-1.12.0.custom/jquery-ui.js"></script>
-	
-	<script src="/wwwapps/shared/jquery/multifile-master/jquery.MultiFile.js"></script>
-	<script src="contactUs.js"></script>
-</head>
-<body>
-<div class="mainDiv">  
-	<table width="100%" border="0" height="50px">
-		<tr>
-			<td align="left">
-			<a href="/index.shtml"><img	src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
-			<span style="font-size:26px;">Contact Us</span>
-			</td>
-		</tr>
-	</table>
-	<h2>Use one of these methods:</h2>	
-	<table style="background-color: #ebebeb;" width="100%" >
-		<tr>
-			<td valign="top" width="33%"><b><u>E-Mail:</u></b><br>
+<%@ page import="java.util.LinkedHashMap" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.warn.web.internet.Contact" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="com.maxmind.geoip.LookupService" %>
+<% request.setAttribute("title", "Contact us"); %>
 
-				cs@warn.com
-				
-			</td>
-			<td valign="top" width="33%"><b><u>Mailing Address:</u></b><br>
-				Warn Industries, Inc.<br>
-				12900 S.E. Capps Road<br>
-				Clackamas, Oregon 97015<br>
-				U.S.A.
-			</td>
-			<td valign="top" width="33%"><b><u>Telephone (North America):</u></b><br>
-				Customer Service:<br>
-				1.800.543.9276<br>
-				<br>
-				Dealer Locator Service:<br>
-				1.800.910.1122<br>
-			</td>
-		</tr>
-	</table>
+<jsp:include page="/template/header.jsp" />
 
-<h2>Or fill out the form below:</h2>	
-	
-	<form method="post" action="ContactService?mode=save" name="contact" onsubmit="return save();" ENCTYPE="multipart/form-data" >
-		<table class="formTable" style="background-color: #ebebeb;">
-			<tr>
-				<td>Classification:</td>
-				<td>
-					<input name="natureName" id="natureName" type="hidden" value="">
-					<% //classification options, default is 1
-					{
-						LinkedHashMap<String, String> classes = Contact.getClassificationOptions();
-						Iterator<Map.Entry<String, String>> it = classes.entrySet().iterator();
-						while (it.hasNext()) {
-						    Map.Entry<String, String> pair = (Map.Entry<String, String>)it.next();
-						    %>
-						    <input type="radio" name="natureid" id="natureid" value="<%= pair.getKey() %>" ><span><%= pair.getValue() %></span><br>
-						    <%
-						    it.remove(); 
-						}
-					}		
-					%>
-					<input type="radio" name="natureid" id="natureid" value="Sponsorship"  class="classification" >Sponsorship
+<style>
 
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><hr></td>
-			</tr>
-			<tr>
-				<td>Regarding:</td>
-				<td>
-					<input name="areaName" id="areaName" type="hidden" value="">
-					<% //regarding options default is 4, which is the first option, core code needs to be rewritten
-					{
-						LinkedHashMap<String, String> areas = Contact.getRegardingOptions();
-						Iterator<Map.Entry<String, String>> it = areas.entrySet().iterator();
-						while (it.hasNext()) {
-						    Map.Entry<String, String> pair = (Map.Entry<String, String>)it.next();
-						    %>
-						    <input type="radio" name="areaid" id="areaid" value="<%= pair.getKey() %>" ><span><%= pair.getValue() %></span><br>
-						    <%
-						    it.remove(); 
-						}
-					}
-							
-					%>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><hr></td>
-			</tr>
-			<tr>
-				<td>Country:</td>
-				<td>
-					<input name="countryName" id="countryName" type="hidden" value="">
-					<%
-					//store off the geoip country code so we can try to set it
-		            LookupService cl = new LookupService("/opt/jsproot/GeoIP.dat", LookupService.GEOIP_MEMORY_CACHE);
-		            String ip = request.getRemoteAddr();
-		            String geoCountryCode = cl.getCountry(ip).getCode();
-					
-					%>
-					<input id="geoCountryCode" type="hidden" value="<%= geoCountryCode %>">
-					<select name="country_code" id="country_code">
-						<option value="--">Please Select</option>
-						<option value="US">United States</option>
+	.MultiFile-list {
+	}
 
-						<% 
-						{
-							LinkedHashMap<String, String> countries = Contact.getListOfCountriesExcludingUS();
-							Iterator<Map.Entry<String, String>> it = countries.entrySet().iterator();
-							while (it.hasNext()) {
-							    Map.Entry<String, String> pair = (Map.Entry<String, String>)it.next();
-							    %><option value="<%= pair.getKey() %>" ><%= pair.getValue() %></option><%
-							    it.remove(); // avoids a ConcurrentModificationException
-							}
-						}
-						
+	.MultiFile-label {
+		color: #003eff;
+		width: 100%;
+		margin: 10px 0 7px;
+		text-align: left;
+		font-size: 12px;
+	}
+
+	.MultiFile-title {
+		color: #000;
+		width: 100%;
+		margin: 0 0 7px;
+		text-align: left;
+		font-size: 12px;
+	}
+
+	@media only screen and (max-width: 600px) {
+		#methods {
+			display: none;
+		}
+	}
+
+</style>
+
+<form method="post" action="ContactService?mode=save" name="contact" onsubmit="return save();" ENCTYPE="multipart/form-data" >
+
+	<div class="page">
+		<div class="page-title">
+			<h1>Contact us</h1>
+		</div>
+		<div class="page-body">
+
+			<div class="fieldset" id="methods">
+				<div class="title">
+					<strong>Use one of these methods</strong>
+				</div>
+
+				<div class="grid">
+
+					<div class="item-grid">
+						<div class="item-box" style="width: 32%">
+							<b>E-Mail:</b>
+							<br>
+							<br>
+
+							cs@warn.com
+						</div>
+						<div class="item-box" style="width: 32%">
+							<b>Mailing Address:</b>
+							<br>
+							<br>
+
+							Warn Industries, Inc.<br>
+							12900 S.E. Capps Road<br>
+							Clackamas, Oregon 97015<br>
+							U.S.A.
+						</div>
+						<div class="item-box"style="width: 32%">
+							<b>Telephone (North America):</b>
+							<br>
+							<br>
+
+							Customer Service:<br>
+							1.800.543.9276
+							<br>
+							<br>
+
+							Dealer Locator Service:<br>
+							1.800.910.1122
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="fieldset">
+				<div class="title">
+					<strong>Or fill the form below</strong>
+				</div>
+				<div class="form-fields">
+					<div class="inputs">
+						<label>Products / Services:</label>
+						<div>
+							<% //classification options, default is 1
+								{
+									LinkedHashMap<String, String> classes = Contact.getClassificationOptions();
+									Iterator<Map.Entry<String, String>> it = classes.entrySet().iterator();
+									while (it.hasNext()) {
+										Map.Entry<String, String> pair = (Map.Entry<String, String>)it.next();
+							%>
+							<span>
+                                <input type="radio" name="natureid" id="natureid_<%= pair.getKey() %>" value="<%= pair.getKey() %>" ><span><%= pair.getValue() %></span>
+                                <label class="forcheckbox" for="natureid_<%= pair.getKey() %>"><%= pair.getValue() %></label>
+                            </span>
+							<%
+										it.remove();
+									}
+								}
+							%>
+						</div>
+					</div>
+					<div class="inputs">
+						<label>Country:</label>
+						<input name="countryName" id="countryName" type="hidden" value="">
+						<%
+							//store off the geoip country code so we can try to set it
+							LookupService cl = new LookupService("/opt/jsproot/GeoIP.dat", LookupService.GEOIP_MEMORY_CACHE);
+							String ip = request.getRemoteAddr();
+							String geoCountryCode = cl.getCountry(ip).getCode();
+
 						%>
-					
-					</select>
+						<input id="geoCountryCode" type="hidden" value="<%= geoCountryCode %>">
+						<select name="country_code" id="country_code">
+							<option value="--">Please Select</option>
+							<option value="US">United States</option>
+							<%
+								{
+									LinkedHashMap<String, String> countries = Contact.getListOfCountriesExcludingUS();
+									Iterator<Map.Entry<String, String>> it = countries.entrySet().iterator();
+									while (it.hasNext()) {
+										Map.Entry<String, String> pair = (Map.Entry<String, String>)it.next();
+							%><option value="<%= pair.getKey() %>" ><%= pair.getValue() %></option><%
+									it.remove(); // avoids a ConcurrentModificationException
+								}
+							}
+						%>
+						</select>
+						<span class="required">*</span>
+						<span class="field-validation-error" data-valmsg-for="Country" data-valmsg-replace="true"></span>
+					</div>
+				</div>
+				<div class="inputs first-name">
+					<label for="first_name">First name:</label>
+					<input name="first_name" id="first_name" type="text" value="" size="30" class="text-box single-line" data-val="true" data-val-required="First name is required." >
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+				</div>
+				<div class="inputs last-name">
+					<label for="last_name">Last name:</label>
+					<input name="last_name" id="last_name" type="text"	value="" size="30" class="text-box single-line" data-val="true" data-val-required="Last name is required.">
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="LastName"
+						  data-valmsg-replace="true"></span>
+				</div>
+				<div class="inputs">
+					<label for="email">Email:</label>
+					<input class="text-box single-line" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="email" name="email" type="text">
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="Email"
+						  data-valmsg-replace="true"></span>
+				</div>
+				<div class="inputs">
+					<label for="voice">Voice phone:</label>
+					<input name="voice" id="voice" type="text" value="" size="30" class="text-box single-line" data-val="true" data-val-required="Voice phone is required." >
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="Voice" data-valmsg-replace="true"></span>
+				</div>
+				<div class="inputs">
+					<label for="state">State or province:</label>
+					<input name="state" id="state" type="text"	value="" size="30" class="text-box single-line">
+				</div>
+			</div>
 
-				</td>
-			</tr>
-			<tr>
-				<td>First Name:</td>
-				<td>
-					<input name="first_name" id="first_name" type="text" value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>Last Name:</td>
-				<td>
-					<input name="last_name" id="last_name" type="text"	value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>E-mail Address:</td>
-				<td>
-					<input name="email" id="email" type="text"	value="" size="30"> &nbsp; 
-					<i>Only one	address please</i>
-				</td>
-			</tr>
-			<tr>
-				<td>Join Our Mailing List:</td>
-				<td>
-					<input type="radio" name="confirm" id="confirm" value="1">Yes
-					<input type="radio" name="confirm" id="confirm" value="0" checked>No
-				</td>
-			</tr>
-			<tr>
-				<td>Voice Phone:</td>
-				<td>
-					<input name="voice" id="voice" type="text" value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>Fax:</td>
-				<td>
-					<input name="fax" id="fax" type="text" value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>Address:</td>
-				<td colspan="2">
-					<input name="address" id="address" type="text" value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>City:</td>
-				<td>
-					<input name="city" id="city" type="text"	value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>State (or Province):</td>
-				<td>
-					<input name="state" id="state" type="text"	value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>Zip (Postal):</td>
-				<td >
-					<input name="zip" id="zip" type="text" value="" size="30">
-				</td>
-			</tr>
-			<tr>
-				<td>Age group (optional):</td>
-				<td>
-					<select name="ageRange" id="ageRange" >
-						<option value="" selected >Please Select</option>
-						<option value="&lt;25" >&lt;25</option>
-						<option value="25-35" >25-35</option>
-						<option value="36-45" >36-45</option>
-						<option value="46-55" >46-55</option>
-						<option value="&gt;55" >&gt;55</option>
-					</select>
-				</td>
-			</tr>
-			<tr><td colspan="2"><hr></td></tr>
-			<tr>
-				<td colspan="2" style="text-align: left;">
-					To attach a picture or file, click	the Choose Files button. <i>Maximum 10 files, 1MB each.</i>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
+			<div class="fieldset">
+				<div class="title">
+					<strong>Attach content</strong>
+				</div>
+				<div class="inputs">
+					<label for="files">To attach a picture or file, click the Choose Files button. Maximum 10 files, 1MB each:</label>
 					<input type="file" multiple class="multi" maxlength="10" data-maxfile="1024" name="files" id="files">
-				</td>
-			</tr>
-			<tr><td colspan="2"><hr></td></tr>
-			<tr>
-				<td>Subject</td>
-				<td>
-					<input name="subject" id="subject" type="text" value="" size="69">
-				</td>
-			</tr>
-			<tr>
-				<td>Message</td>
-				<td>
-					<textarea rows=10 cols=70 name="comment" id="comment"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="left">
-					<span style="float:right;"><input type="submit" value="submit"></span>
-				</td>
-			</tr>
+				</div>
+			</div>
 
-		</table>
-	</form>
-</div>
-</body>
-</html>
+			<div class="fieldset">
+				<div class="title">
+					<strong>Message</strong>
+				</div>
+				<div class="inputs">
+					<label for="subject">Subject:</label>
+					<input name="subject" id="subject" type="text" value="" size="69" class="text-box single-line" data-val="true" data-val-required="Subject is required.">
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+				</div>
+				<div class="inputs">
+					<label for="comment">Message:</label>
+					<textarea rows=10 cols=70 name="comment" id="comment" class="text-box" data-val="true" data-val-required="Message is required."></textarea>
+					<span class="required">*</span>
+					<span class="field-validation-error" data-valmsg-for="Comment" data-valmsg-replace="true"></span>
+				</div>
+			</div>
 
+			<div class="buttons">
+				<input class="button-1" type="submit" value="Send">
+			</div>
 
+		</div>
+
+	</div>
+
+</form>
+
+<script src="contactUs.js"></script>
+
+<jsp:include page="/template/footer.jsp" />

@@ -1,37 +1,31 @@
-<%@ page import = "com.warn.web.InternetUtils, com.warn.mktg.WSponsorship, java.util.List" %>
-<!DOCTYPE html> 
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Cache-Control" content="no-store" />
-	<title>Contact Us</title>
-	<link rel="stylesheet" href="/wwwapps/shared/wwwapps.css" type="text/css">
-</head>
-<body>
+<% request.setAttribute("title", "Contact us"); %>
+
+<jsp:include page="/template/header.jsp" />
+
 <%
 	String msg = "Thank you for contacting us."; 
 	
 	String errMsg = (String)request.getAttribute("errMsg");
+
 	if(errMsg != null && !errMsg.isEmpty()){
-	
-		msg = errMsg;
-		
+		msg = "It seems that an error occurred while we were trying to send your message!";
 	}
 
 %>
-  	<div >
+
+<div class="page">
+	<div class="page-title">
+		<h1>Contact us</h1>
+	</div>
+	<div class="page-body">
+
 		<table>
-			<tr>
-			<td colspan="3">
-				<a href="/index.shtml"><img src="/wwwapps/shared/WarnLogoWeb.gif" border="0"></a>
-			</td>
-			</tr>
-			<tr><td colspan="3"><h2>Contacting Warn Industries</h2></td></tr>
-			<tr>
-				<td colspan="3"><%= msg %></td>
+			<tr><td colspan="3">
+				<h2 style="color: #ff0000"><%= msg %></h2></td>
 			</tr>
 		</table>
-	</div>
-</body>
-</html>
 
+	</div>
+</div>
+
+<jsp:include page="/template/footer.jsp" />

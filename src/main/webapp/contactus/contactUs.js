@@ -24,62 +24,73 @@
 		}
 		window.location = url;
 	}
-	
+
 	function validate() {
-		var errors = "";
+
+		var isValid = true;
+
+		$( "span[data-valmsg-for='Country']").text('');
+		$( "span[data-valmsg-for='FirstName']").text('');
+		$( "span[data-valmsg-for='LastName']").text('');
+		$( "span[data-valmsg-for='Email']").text('');
+		$( "span[data-valmsg-for='Voice']").text('');
+		$( "span[data-valmsg-for='Subject']").text('');
+		$( "span[data-valmsg-for='Comment']").text('');
+
 		var doc = document.contact;
 
+		if (doc.country_code.value.length < 1 || doc.country_code.value == '--') {
+			isValid = false;
+			$( "span[data-valmsg-for='Country']").text('Please select a Country');
+		}
+
 		if (doc.first_name.value.length < 1) {
-			errors += "Please enter a first name\n";
+			isValid = false;
+			$( "span[data-valmsg-for='FirstName']").text('Please enter a first name');
 		}
 
 		if (doc.last_name.value.length < 1) {
-			errors += "Please enter a last name\n";
+			isValid = false;
+			$( "span[data-valmsg-for='LastName']").text('Please enter a last name');
 		}
 
-		if (doc.email.value.length < 1) {
-			errors += "Please enter an email address\n";
-		} else {
-			if (doc.email.value.indexOf('@') == -1) {
-				errors += "Your email address must contain a @ to be valid\n";
-			} else if (doc.email.value.indexOf('.') == -1) {
-				errors += "Your email address must contain a . to be valid\n";
-			} else if (doc.email.value.indexOf(' ') != -1) {
-				errors += "Your email address can NOT contain spaces\n";
-			}
+		if (doc.email.value.length < 1 ||
+			doc.email.value.indexOf('@') == -1 ||
+			doc.email.value.indexOf('.') == -1 ||
+			doc.email.value.indexOf(' ') != -1) {
+			isValid = false;
+			$( "span[data-valmsg-for='Email']").text('Please enter a valid email address');
 		}
 
-		if (doc.city.value.length < 1) {
-			errors += "Please enter a city\n";
+
+
+		if (doc.voice.value.length < 1) {
+			isValid = false;
+			$( "span[data-valmsg-for='Voice']").text('Please enter a phone');
 		}
-		if (doc.state.value.length < 1) {
-			errors += "Please enter a state\n";
-		}
-		if (doc.zip.value.length < 1) {
-			errors += "Please enter a Zip code\n";
-		}
-		if (doc.country_code.value.length < 1) {
-			errors += "Please select a Country\n";
-		}
+
 		if (doc.subject.value.length < 1) {
-			errors += "Please enter a subject\n";
+			isValid = false;
+			$( "span[data-valmsg-for='Subject']").text('Please enter a subject');
 		}
 		if (doc.comment.value.length < 1) {
-			errors += "Please enter a message\n";
+			isValid = false;
+			$( "span[data-valmsg-for='Comment']").text('Please enter a message');
 		}
-		return errors;
+
+		return isValid;
 	}
-	
+
+	function cleanError(selectExpression) {
+
+	}
+
+	function showError(selectExpression, message) {
+
+	}
+
 	function save() {
-
-		var results = validate();
-
-		if (results == "") {
-			return true;
-		} else {
-			alert(results);
-			return false;
-		}
+		return validate();
 	}
 	
 	$(document).ready(function() {

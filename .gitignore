@@ -33,7 +33,6 @@ build
 /.gradle/
 /.settings/
 /bin/
-src/main/java/
 src/main/webapp/WEB-INF/classes/
 src/main/webapp/WEB-INF/lib/
 /.idea/
