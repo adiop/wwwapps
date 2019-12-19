@@ -61,10 +61,10 @@ dependencies {
     providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
     providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
 
-    providedCompile "org.slf4j:slf4j-log4j12:1.7.12"
-    providedCompile "org.slf4j:jcl-over-slf4j:1.7.12"
+    compile "org.slf4j:slf4j-log4j12:1.7.12"
+    compile "org.slf4j:jcl-over-slf4j:1.7.12"
 
-    providedCompile "javax.mail:mail:1.5.0-b01"
+    compile "javax.mail:mail:1.5.0-b01"
 
     //needed for URL rewrite
     compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
@@ -74,6 +74,25 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.maxmind.geoip/geoip-api
     compile group: 'com.maxmind.geoip', name: 'geoip-api', version: '1.3.1'
+
+    compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.1.0.jre8'
+
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0'
+
+    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-healthchecks
+    compile group: 'com.codahale.metrics', name: 'metrics-healthchecks', version: '3.0.2'
+
+    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-jvm
+    compile group: 'com.codahale.metrics', name: 'metrics-jvm', version: '3.0.2'
+
+    //quartz
+    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
+    compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.0'
+
+    //used to create config files
+    compile group: 'com.typesafe', name: 'config', version: '1.3.1'
+
 
     //testing
     testCompile group: 'junit', name: 'junit', version: '4.11'
