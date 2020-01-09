@@ -204,6 +204,14 @@
 				</div>
 			</div>
 
+			<div class="fieldset" style="background-color: #FFF; margin-bottom: 15px; padding: 5px;">
+
+					<a href="https://www.warn.com/privacy-policy" style="color: #007fff">
+						Please read our <strong style="font-weight: bold">Privacy Policy</strong> carefully as it will help you make informed decisions about sharing your personal information with us.
+					</a>
+
+			</div>
+
 			<div class="buttons">
 				<input class="button-1" type="submit" value="Send">
 			</div>
