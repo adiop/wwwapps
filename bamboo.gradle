@@ -2,19 +2,18 @@ import java.nio.file.*
 import org.apache.commons.io.FileUtils
 
 buildscript{
-    repositories {
-        mavenCentral()
-        jcenter()
-        maven {
-            url "https://plugins.gradle.org/m2/"                    // Needed to pull gretty dependencies
-        }
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven {
+			url "https://plugins.gradle.org/m2/"                    // Needed to pull gretty dependencies
+		}
 
-    }
+	}
 
-    dependencies{
-        classpath "commons-io:commons-io:2.5"
-        classpath "gradle.plugin.org.akhikhl.gretty:gretty:1.4.2"
-    }
+	dependencies{
+		classpath "commons-io:commons-io:2.5"
+	}
 }
 apply plugin: 'java'
 apply plugin: 'war'
@@ -23,11 +22,7 @@ def tomcatVersion = "7.0.53"
 def warName = "wwwapps"
 
 war{
-//    from('/resources') {
-//        include 'application.conf'
-//        into('WEB-INF/classes')
-//    }
-    archiveName = warName + ".war"
+	archiveName = warName + ".war"
 }
 
 sourceCompatibility = 1.8
@@ -37,7 +32,7 @@ repositories {
 }
 
 tasks.withType(JavaCompile) {
-    options.incremental = true
+	options.incremental = true
 }
 
 configurations {
@@ -46,7 +41,7 @@ configurations {
 
 dependencies {
 
-    jasper "org.apache.tomcat:tomcat-catalina-ant:${tomcatVersion}"
+	jasper "org.apache.tomcat:tomcat-catalina-ant:${tomcatVersion}"
     jasper "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
     jasper "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
 
@@ -54,50 +49,56 @@ dependencies {
     jasper "org.glassfish.web:jstl-impl:1.2"
     jasper "taglibs:standard:1.1.2"
 
-    //this was defined in settings.gradle file
-    compile files('../WARNJAVALIBPRJ-WARNJAVALIBCOMPILE-JOB1/build/libs/WarnJava-1.0-SNAPSHOT.jar')
+ 	//this was defined in settings.gradle file
+	compile files('../WARNJAVALIBPRJ-WARNJAVALIBCOMPILE-JOB1/build/libs/WarnJava-1.0-SNAPSHOT.jar')
+	//compile files('../WarnJavaLib/build/libs/WarnJava-1.0-SNAPSHOT.jar')
 
-    //stuff that lives in Tomcats core lib folder or in the bin folder
-    providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
-    providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
+	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
 
+
+
+	// https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core
+	compile "org.glassfish.jersey.containers:jersey-container-servlet-core:2.25.1"
+	compile "org.glassfish.jersey.containers:jersey-container-servlet:2.25.1"
+	compile "org.glassfish.jersey.media:jersey-media-multipart:2.25.1"
+
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.8.8'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-mapper-asl
+
+	compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.2'
+	compile group: 'org.codehaus.jackson', name: 'jackson-xc', version: '1.9.2'
+	compile group: 'org.codehaus.jackson', name: 'jackson-core-asl', version: '1.9.2'
+	compile group: 'org.codehaus.jackson', name: 'jackson-jaxrs', version: '1.9.2'
+
+	 // SL4J
+     compile "org.slf4j:slf4j-log4j12:1.7.12"
+     compile "org.slf4j:jcl-over-slf4j:1.7.12"
+
+    // SL4J
     compile "org.slf4j:slf4j-log4j12:1.7.12"
     compile "org.slf4j:jcl-over-slf4j:1.7.12"
 
-    compile "javax.mail:mail:1.5.0-b01"
+	//stuff that lives in Tomcats core lib folder or in the bin folder
+    providedCompile "org.apache.tomcat:tomcat-catalina:${tomcatVersion}"
+    providedCompile "org.apache.tomcat:tomcat-jasper:${tomcatVersion}"
 
-    //needed for URL rewrite
-    compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
+	compile "javax.mail:mail:1.5.0-b01"
 
-    // https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core
-    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.26-b03'
+	//needed for URL rewrite
+	compile group: 'org.tuckey', name: 'urlrewritefilter', version: '4.0.4'
 
-    // https://mvnrepository.com/artifact/com.maxmind.geoip/geoip-api
-    compile group: 'com.maxmind.geoip', name: 'geoip-api', version: '1.3.1'
+	// https://mvnrepository.com/artifact/org.springframework/spring-web
+	compile group: 'org.springframework', name: 'spring-web', version: '5.2.0.RELEASE'
 
-    compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.1.0.jre8'
-
-    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
-    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0'
-
-    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-healthchecks
-    compile group: 'com.codahale.metrics', name: 'metrics-healthchecks', version: '3.0.2'
-
-    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-jvm
-    compile group: 'com.codahale.metrics', name: 'metrics-jvm', version: '3.0.2'
-
-    //quartz
-    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
-    compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.0'
-
-    //used to create config files
-    compile group: 'com.typesafe', name: 'config', version: '1.3.1'
-
-
-    //testing
+	//testing
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'com.google.guava', name: 'guava', version: '21.0'
+	testCompile group: 'com.google.guava', name: 'guava', version: '21.0'
 
-    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+	testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+
+
 
 }
