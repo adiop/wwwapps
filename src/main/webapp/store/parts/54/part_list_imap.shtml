@@ -1,8 +1,0 @@
-<!--#include virtual="/corporate/ReplacementParts/parts_view_include.shtml" -->
-<img id="partsview" src="/corporate/ReplacementParts/parts/54/38985_REV_A0_EXPLODED.gif" usemap="#parts_list">
-<map name="parts_list" class="wmap">
-<area shape="circle" coords="96,42,10" href="javascript:alert('adding: 15900');" title="15900" >
-<area shape="circle" coords="150,227,10" href="javascript:alert('adding: 31896');" title="31896" >
-<area shape="circle" coords="245,207,10" href="javascript:alert('adding: 28396');" title="28396" >
-</map>
-<script language"JavaScript">

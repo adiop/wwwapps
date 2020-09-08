@@ -1,6 +1,0 @@
-<!--#include virtual="/corporate/ReplacementParts/parts_view_include.shtml" -->
-<img id="partsview" src="/corporate/ReplacementParts/parts/172/90rc-exploded.jpg" usemap="#parts_list">
-<map name="parts_list" class="wmap">
-<area shape="circle" coords="397,2667,7" href="javascript:alert('adding: 70074');" title="70074" >
-</map>
-<script language"JavaScript">
