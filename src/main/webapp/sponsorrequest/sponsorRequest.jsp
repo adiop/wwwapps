@@ -98,7 +98,7 @@ String requestTypeName = WSponsorship.getRequestTypeNameForID(requestTypeID);
 		<tr>
 			<td >Average Number of Vehicles:</td>
 			<td >
-				<select name="registered_vehiclesID"	id="registered_vehiclesID">
+				<select name="registered_vehiculesID"	id="registered_vehiculesID">
 					<option value="" selected>Choose One</option>
 					<option value="1">0-100</option>
 					<option value="2">100-200</option>

@@ -5,6 +5,9 @@ ENV JAVA_OPTS="-Denv=staging"
 RUN ["rm", "-fr", "/usr/local/tomcat/webapps/ROOT"]
 COPY build/libs/wwwapps.war /usr/local/tomcat/webapps/wwwapps.war
 
+#RUN ["rm", "-fr", "/usr/local/tomcat/conf/web.xml"]
+#COPY docker/tomcat/conf/web.xml /usr/local/tomcat/conf/web.xml
+
 RUN ["rm", "-fr", "/opt"]
 COPY opt/ /opt
 
