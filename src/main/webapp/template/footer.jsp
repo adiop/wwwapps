@@ -86,7 +86,7 @@
     </div>
     <div class="footer-lower">
         <div class="footer-disclaimer">
-            Copyright © 2021 WARN Industries. All rights reserved.
+            Copyright &copy; 2021 WARN Industries. All rights reserved.
         </div>
     </div>
 </div>
