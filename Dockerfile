@@ -1,4 +1,5 @@
-FROM tomcat:8-jdk8-openjdk-slim
+#FROM tomcat:8-jdk8-openjdk-slim
+FROM tomcat:9.0.44-jdk8-openjdk-slim
 
 ENV JAVA_OPTS="-Denv=staging"
 
